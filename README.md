@@ -1,7 +1,7 @@
 # Erase & Install
 
 
-![](readMe_images/icon_512x512.png)
+![](./readMe_images/icon_512x512.png)
 
 
 Description 
@@ -25,7 +25,7 @@ Requirements
 Installation
 ===================================
 
-1. Download the installer pkg. (in the folder `InstallerPackage` in the repository)
+1. Download the installer pkg. ( [Click here](./InstallPackage/EraseInstall-1.0.1.pkg) )
 2. Install the EraseInstall app using the installer. 
 
 Prerequisites
@@ -41,6 +41,11 @@ Using the EraseInstall application
 1. Open the app
 2. Follow the steps on screen. 
 3. Done. The system on your Mac will be erased and re-installed with the macOS Installer.
+
+Source
+===================================
+
+The source of the application can be found in the folder [Source](./Source/).
 
 License
 ===================================
@@ -64,4 +69,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[![](readMe_images/pro-logo-enterprise.png)](https://www.prowarehouse.nl)
+[![](./readMe_images/pro-logo-enterprise.png)](https://www.prowarehouse.nl)

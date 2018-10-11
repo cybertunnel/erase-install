@@ -1,0 +1,26 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "colors" : [
+    {
+      "idiom" : "universal",
+      "color" : {
+        "reference" : "unemphasizedSelectedContentBackgroundColor"
+      }
+    },
+    {
+      "idiom" : "universal",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "reference" : "underPageBackgroundColor"
+      }
+    }
+  ]
+}
