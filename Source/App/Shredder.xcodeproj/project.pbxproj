@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		373264492147A7230076278B /* nl.prowarehouse.ShredderHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		374FAF66214146B800174657 /* InstallerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FAF65214146B800174657 /* InstallerApp.swift */; };
+		3759F8DF216353EA00BA6346 /* ValidationChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */; };
+		3759F8E121636E1700BA6346 /* EraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8E021636E1700BA6346 /* EraseView.swift */; };
+		378B6E472148CFB7007A3348 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378B6E462148CFB7007A3348 /* NotificationCenter.framework */; };
+		3791FD1B2164946000B3289C /* SearchInstallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791FD1A2164946000B3289C /* SearchInstallers.swift */; };
+		3791FD1E2164959E00B3289C /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791FD1D2164959E00B3289C /* ValidationHelper.swift */; };
+		37A6B514211AC87500AC2EA2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B513211AC87500AC2EA2 /* main.swift */; };
+		37A6B51D211ADA0D00AC2EA2 /* XPCProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B51C211ADA0D00AC2EA2 /* XPCProtocols.swift */; };
+		37A6B51E211ADA1500AC2EA2 /* XPCProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B51C211ADA0D00AC2EA2 /* XPCProtocols.swift */; };
+		37A6B520211ADDF000AC2EA2 /* XPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B51F211ADDF000AC2EA2 /* XPCService.swift */; };
+		37A6B522211AF03100AC2EA2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B521211AF03100AC2EA2 /* Helper.swift */; };
+		37A6B524211AF25500AC2EA2 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B523211AF25500AC2EA2 /* Process.swift */; };
+		37AD242F215A2B0E00436AC9 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD242E215A2B0E00436AC9 /* ViewControllerExtension.swift */; };
+		37AD2432215A2ECC00436AC9 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD2431215A2ECC00436AC9 /* MainWindowController.swift */; };
+		37AD2434215A36DA00436AC9 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD2433215A36DA00436AC9 /* ValidationViewController.swift */; };
+		37AD2437215A5BBB00436AC9 /* PickInstallerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AD2435215A5BBB00436AC9 /* PickInstallerItem.swift */; };
+		37AD243A215A750400436AC9 /* PickInstallerItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37AD2439215A750400436AC9 /* PickInstallerItem.xib */; };
+		37B66CEA2158C0C500EC866F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B66CEC2158C0C500EC866F /* Localizable.strings */; };
+		37B66CF12158F69000EC866F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B66CF02158F68F00EC866F /* Assets.xcassets */; };
+		37CC407C21199AF200C22BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC407B21199AF200C22BB4 /* AppDelegate.swift */; };
+		37CC407E21199AF200C22BB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC407D21199AF200C22BB4 /* ViewController.swift */; };
+		37CC408321199AF400C22BB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC408121199AF400C22BB4 /* Main.storyboard */; };
+		37DD1808215A20A900FB220B /* PickInstallerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD1807215A20A900FB220B /* PickInstallerViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		373264482147A7120076278B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchServices;
+			dstSubfolderSpec = 1;
+			files = (
+				373264492147A7230076278B /* nl.prowarehouse.ShredderHelper in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37A6B50F211AC87500AC2EA2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		374FAF65214146B800174657 /* InstallerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerApp.swift; sourceTree = "<group>"; };
+		3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationChecklistView.swift; sourceTree = "<group>"; };
+		3759F8E021636E1700BA6346 /* EraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseView.swift; sourceTree = "<group>"; };
+		378B6E462148CFB7007A3348 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		3791FD1A2164946000B3289C /* SearchInstallers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInstallers.swift; sourceTree = "<group>"; };
+		3791FD1D2164959E00B3289C /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
+		37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nl.prowarehouse.ShredderHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A6B513211AC87500AC2EA2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		37A6B519211ACADF00AC2EA2 /* ShredderHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShredderHelper-Info.plist"; sourceTree = "<group>"; };
+		37A6B51A211ACAFC00AC2EA2 /* ShredderHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShredderHelper-Launchd.plist"; sourceTree = "<group>"; };
+		37A6B51C211ADA0D00AC2EA2 /* XPCProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCProtocols.swift; sourceTree = "<group>"; };
+		37A6B51F211ADDF000AC2EA2 /* XPCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCService.swift; sourceTree = "<group>"; };
+		37A6B521211AF03100AC2EA2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		37A6B523211AF25500AC2EA2 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		37AD242E215A2B0E00436AC9 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		37AD2431215A2ECC00436AC9 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		37AD2433215A36DA00436AC9 /* ValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
+		37AD2435215A5BBB00436AC9 /* PickInstallerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickInstallerItem.swift; sourceTree = "<group>"; };
+		37AD2439215A750400436AC9 /* PickInstallerItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickInstallerItem.xib; sourceTree = "<group>"; };
+		37B66CEB2158C0C500EC866F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		37B66CF02158F68F00EC866F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37CC407821199AF200C22BB4 /* EraseInstall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraseInstall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CC407B21199AF200C22BB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		37CC407D21199AF200C22BB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37CC408221199AF400C22BB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		37CC408421199AF400C22BB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CC408521199AF400C22BB4 /* Shredder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shredder.entitlements; sourceTree = "<group>"; };
+		37DD1807215A20A900FB220B /* PickInstallerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickInstallerViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37A6B50E211AC87500AC2EA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378B6E472148CFB7007A3348 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CC407521199AF200C22BB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3724C31E215AD6F700241F88 /* GenericExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				37AD242E215A2B0E00436AC9 /* ViewControllerExtension.swift */,
+			);
+			path = GenericExtensions;
+			sourceTree = "<group>";
+		};
+		3724C31F215AD73400241F88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37B66CF02158F68F00EC866F /* Assets.xcassets */,
+				37CC408421199AF400C22BB4 /* Info.plist */,
+				37CC408521199AF400C22BB4 /* Shredder.entitlements */,
+				37B66CEC2158C0C500EC866F /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		374FAF5D2141295500174657 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37CC408121199AF400C22BB4 /* Main.storyboard */,
+				379A39F321660870007BA806 /* PickItem */,
+				3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */,
+				3759F8E021636E1700BA6346 /* EraseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		374FAF64214146A400174657 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				374FAF65214146B800174657 /* InstallerApp.swift */,
+				3791FD1A2164946000B3289C /* SearchInstallers.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		376CD8FB211C1409008ED726 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				37CC407D21199AF200C22BB4 /* ViewController.swift */,
+				37DD1807215A20A900FB220B /* PickInstallerViewController.swift */,
+				37AD2433215A36DA00436AC9 /* ValidationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		378B6E452148CFB7007A3348 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				378B6E462148CFB7007A3348 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3791FD1C2164957D00B3289C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3791FD1D2164959E00B3289C /* ValidationHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		379A39F321660870007BA806 /* PickItem */ = {
+			isa = PBXGroup;
+			children = (
+				37AD2435215A5BBB00436AC9 /* PickInstallerItem.swift */,
+				37AD2439215A750400436AC9 /* PickInstallerItem.xib */,
+			);
+			path = PickItem;
+			sourceTree = "<group>";
+		};
+		37A6B512211AC87500AC2EA2 /* ShredderHelper */ = {
+			isa = PBXGroup;
+			children = (
+				37A6B51A211ACAFC00AC2EA2 /* ShredderHelper-Launchd.plist */,
+				37A6B519211ACADF00AC2EA2 /* ShredderHelper-Info.plist */,
+				37A6B513211AC87500AC2EA2 /* main.swift */,
+				37A6B521211AF03100AC2EA2 /* Helper.swift */,
+				37A6B523211AF25500AC2EA2 /* Process.swift */,
+			);
+			path = ShredderHelper;
+			sourceTree = "<group>";
+		};
+		37A6B51B211AD9F600AC2EA2 /* XPC */ = {
+			isa = PBXGroup;
+			children = (
+				37A6B51C211ADA0D00AC2EA2 /* XPCProtocols.swift */,
+				37A6B51F211ADDF000AC2EA2 /* XPCService.swift */,
+			);
+			path = XPC;
+			sourceTree = "<group>";
+		};
+		37AD2430215A2E8500436AC9 /* WindowController */ = {
+			isa = PBXGroup;
+			children = (
+				37AD2431215A2ECC00436AC9 /* MainWindowController.swift */,
+			);
+			path = WindowController;
+			sourceTree = "<group>";
+		};
+		37CC406F21199AF200C22BB4 = {
+			isa = PBXGroup;
+			children = (
+				37A6B51B211AD9F600AC2EA2 /* XPC */,
+				37CC407A21199AF200C22BB4 /* Shredder */,
+				37A6B512211AC87500AC2EA2 /* ShredderHelper */,
+				37CC407921199AF200C22BB4 /* Products */,
+				378B6E452148CFB7007A3348 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		37CC407921199AF200C22BB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37CC407821199AF200C22BB4 /* EraseInstall.app */,
+				37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37CC407A21199AF200C22BB4 /* Shredder */ = {
+			isa = PBXGroup;
+			children = (
+				3791FD1C2164957D00B3289C /* Helper */,
+				37AD2430215A2E8500436AC9 /* WindowController */,
+				374FAF64214146A400174657 /* Model */,
+				374FAF5D2141295500174657 /* View */,
+				376CD8FB211C1409008ED726 /* ViewControllers */,
+				3724C31E215AD6F700241F88 /* GenericExtensions */,
+				3724C31F215AD73400241F88 /* Resources */,
+				37CC407B21199AF200C22BB4 /* AppDelegate.swift */,
+			);
+			path = Shredder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		37A6B510211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37A6B517211AC87500AC2EA2 /* Build configuration list for PBXNativeTarget "nl.prowarehouse.ShredderHelper" */;
+			buildPhases = (
+				37A6B50D211AC87500AC2EA2 /* Sources */,
+				37A6B50E211AC87500AC2EA2 /* Frameworks */,
+				37A6B50F211AC87500AC2EA2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nl.prowarehouse.ShredderHelper;
+			productName = ShredderHelper;
+			productReference = 37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */;
+			productType = "com.apple.product-type.tool";
+		};
+		37CC407721199AF200C22BB4 /* Shredder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CC408821199AF400C22BB4 /* Build configuration list for PBXNativeTarget "Shredder" */;
+			buildPhases = (
+				37CC407421199AF200C22BB4 /* Sources */,
+				37CC407521199AF200C22BB4 /* Frameworks */,
+				37CC407621199AF200C22BB4 /* Resources */,
+				373264482147A7120076278B /* CopyFiles */,
+				3724C320215AD8ED00241F88 /* BuildNumber */,
+				375F480221654196009FEC63 /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shredder;
+			productName = Shredder;
+			productReference = 37CC407821199AF200C22BB4 /* EraseInstall.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37CC407021199AF200C22BB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Pro Warehouse";
+				TargetAttributes = {
+					37A6B510211AC87500AC2EA2 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					37CC407721199AF200C22BB4 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.HardenedRuntime = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 37CC407321199AF200C22BB4 /* Build configuration list for PBXProject "Shredder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 37CC406F21199AF200C22BB4;
+			productRefGroup = 37CC407921199AF200C22BB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37CC407721199AF200C22BB4 /* Shredder */,
+				37A6B510211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37CC407621199AF200C22BB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37B66CEA2158C0C500EC866F /* Localizable.strings in Resources */,
+				37B66CF12158F69000EC866F /* Assets.xcassets in Resources */,
+				37AD243A215A750400436AC9 /* PickInstallerItem.xib in Resources */,
+				37CC408321199AF400C22BB4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3724C320215AD8ED00241F88 /* BuildNumber */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = BuildNumber;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$SRCROOT/Shredder/Resources/Info.plist\")\n\nbuildNumberDec=$(($buildNumber + 1))\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumberDec\" \"$SRCROOT/Shredder/Resources/Info.plist\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumberDec\" \"$SRCROOT/ShredderHelper/ShredderHelper-Info.plist\"\n";
+		};
+		375F480221654196009FEC63 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37A6B50D211AC87500AC2EA2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37A6B514211AC87500AC2EA2 /* main.swift in Sources */,
+				37A6B51E211ADA1500AC2EA2 /* XPCProtocols.swift in Sources */,
+				37A6B522211AF03100AC2EA2 /* Helper.swift in Sources */,
+				37A6B524211AF25500AC2EA2 /* Process.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CC407421199AF200C22BB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3759F8DF216353EA00BA6346 /* ValidationChecklistView.swift in Sources */,
+				37AD242F215A2B0E00436AC9 /* ViewControllerExtension.swift in Sources */,
+				37CC407E21199AF200C22BB4 /* ViewController.swift in Sources */,
+				374FAF66214146B800174657 /* InstallerApp.swift in Sources */,
+				37AD2434215A36DA00436AC9 /* ValidationViewController.swift in Sources */,
+				37CC407C21199AF200C22BB4 /* AppDelegate.swift in Sources */,
+				37A6B51D211ADA0D00AC2EA2 /* XPCProtocols.swift in Sources */,
+				37A6B520211ADDF000AC2EA2 /* XPCService.swift in Sources */,
+				3791FD1E2164959E00B3289C /* ValidationHelper.swift in Sources */,
+				3791FD1B2164946000B3289C /* SearchInstallers.swift in Sources */,
+				37AD2432215A2ECC00436AC9 /* MainWindowController.swift in Sources */,
+				3759F8E121636E1700BA6346 /* EraseView.swift in Sources */,
+				37AD2437215A5BBB00436AC9 /* PickInstallerItem.swift in Sources */,
+				37DD1808215A20A900FB220B /* PickInstallerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		37B66CEC2158C0C500EC866F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37B66CEB2158C0C500EC866F /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		37CC408121199AF400C22BB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37CC408221199AF400C22BB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		37A6B515211AC87500AC2EA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = "$(SRCROOT)/ShredderHelper/ShredderHelper-Info.plist";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/ShredderHelper/ShredderHelper-Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/ShredderHelper/ShredderHelper-Launchd.plist\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.ShredderHelper;
+				PRODUCT_NAME = nl.prowarehouse.ShredderHelper;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		37A6B516211AC87500AC2EA2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = "$(SRCROOT)/ShredderHelper/ShredderHelper-Info.plist";
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"\"$(SRCROOT)/ShredderHelper/ShredderHelper-Info.plist\"",
+					"-sectcreate",
+					__TEXT,
+					__launchd_plist,
+					"\"$(SRCROOT)/ShredderHelper/ShredderHelper-Launchd.plist\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.ShredderHelper;
+				PRODUCT_NAME = nl.prowarehouse.ShredderHelper;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		37CC408621199AF400C22BB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		37CC408721199AF400C22BB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		37CC408921199AF400C22BB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = "$(SRCROOT)/Shredder/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.Shredder;
+				PRODUCT_NAME = EraseInstall;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		37CC408A21199AF400C22BB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = "$(SRCROOT)/Shredder/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.Shredder;
+				PRODUCT_NAME = EraseInstall;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37A6B517211AC87500AC2EA2 /* Build configuration list for PBXNativeTarget "nl.prowarehouse.ShredderHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37A6B515211AC87500AC2EA2 /* Debug */,
+				37A6B516211AC87500AC2EA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CC407321199AF200C22BB4 /* Build configuration list for PBXProject "Shredder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CC408621199AF400C22BB4 /* Debug */,
+				37CC408721199AF400C22BB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CC408821199AF400C22BB4 /* Build configuration list for PBXNativeTarget "Shredder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CC408921199AF400C22BB4 /* Debug */,
+				37CC408A21199AF400C22BB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 37CC407021199AF200C22BB4 /* Project object */;
+}
