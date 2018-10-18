@@ -36,8 +36,11 @@ struct CommandToSend {
 
 class XPCServiceClient: NSObject {
 
+    private var installingHelper: Bool = false
     private var connection: NSXPCConnection?
     weak var clientDelegate: XPCServiceClientProtocol?
+
+    private let logStore = LogContent.current
 
     // MARK: - Public Functions
     func getVersionOfHelper() {
@@ -53,10 +56,8 @@ class XPCServiceClient: NSObject {
     }
 
     /// Check if Helper daemon exists
-    #warning("Change the name to your chosen helper name.")
-    private let nameOfHelper: String = "nl.prowarehouse.ShredderHelper"
     func checkIfHelperInstalled() -> Bool {
-        let pathToHelper = "/Library/PrivilegedHelperTools/\(nameOfHelper)"
+        let pathToHelper = "/Library/PrivilegedHelperTools/\(HelperConstants.helperServiceName)"
         let fileManager = FileManager()
         return fileManager.fileExists(atPath: pathToHelper)
     }
@@ -71,6 +72,7 @@ class XPCServiceClient: NSObject {
 
     /// Install new helper daemon
     func installHelperDaemon() {
+        installingHelper = true
         // Create authorization reference for the user
         var authRef: AuthorizationRef?
         var authStatus = AuthorizationCreate(nil, nil, [], &authRef)
@@ -99,7 +101,7 @@ class XPCServiceClient: NSObject {
             let blessError = error!.takeRetainedValue() as Error
             print(blessError.localizedDescription)
         } else {
-            NSLog("Helper installed.")
+            log(message: "Helper installed.")
         }
 
         // Release the Authorization Reference
@@ -119,8 +121,14 @@ class XPCServiceClient: NSObject {
                 self.connection?.invalidationHandler = nil
                 OperationQueue.main.addOperation {
                     self.connection = nil
-                    NSLog("Connection to helper lost")
-                    self.clientDelegate?.connectionLost()
+                    self.log(message: "Connection to helper lost")
+                    if self.installingHelper {
+                        self.clientDelegate?.connectionLostWhileInstallingHelper()
+                        self.installingHelper = false
+                    } else {
+                         self.clientDelegate?.connectionLost()
+                    }
+
                 }
             }
             connection?.resume()
@@ -137,10 +145,28 @@ class XPCServiceClient: NSObject {
     }
 }
 
-extension XPCServiceClient: MainAppProtocol {
+extension XPCServiceClient: MainAppProtocol, Logging {
+    func didReceiveErrorOutput(value: String) {
+        OperationQueue.main.addOperation {
+            self.log(message: value)
+        }
+    }
+
+    func didTerminateHelper(normal: Bool) {
+        OperationQueue.main.addOperation {
+            self.clientDelegate?.taskIsTerminated(normal: normal)
+        }
+    }
+
+    func didReceiveLog(value: String) {
+        OperationQueue.main.addOperation {
+            self.log(message: value)
+        }
+    }
+
     func didStartWithCommand(command: String) {
         OperationQueue.main.addOperation {
-            NSLog("Command Received: \(command)")
+            self.log(message: command)
         }
     }
 

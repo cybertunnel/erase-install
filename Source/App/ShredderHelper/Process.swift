@@ -32,20 +32,65 @@ struct CliCommand {
     let arguments: [String]?
 }
 
-class ProcessHelper {
+protocol ProcessHelperProtocol: class {
+    /// Callback to inform delegate of updated log entry
+    ///
+    /// - Parameter value: log entry
+    func didReceiveLogEntry(value: String)
+
+    /// Callback to inform delegate of error output.
+    ///
+    /// - Parameter value: error content.
+    func didReceiveErrorOutput(value: String)
+
+    /// Callback to inform when the app is terminated.
+    ///
+    /// - Returns: True is exit 0 else false.
+    func didTerminateApp(normal: Bool)
+}
+
+class ProcessHelper: NSObject {
     private var task: Process?
+    weak var delegate: ProcessHelperProtocol?
 
     init(command: CliCommand) {
+        super.init()
+
         if task != nil {
             task?.terminate()
             task = nil
         }
 
-        task = generateTask(command: command)
+        task = self.generateTask(command: command)
     }
 
     // MARK: - Public
     func execute() {
+        delegate?.didReceiveLogEntry(value: "Helper: Command starting Execution")
+        let output = Pipe()
+        let outputHandle = output.fileHandleForReading
+        outputHandle.readabilityHandler = { pipe in
+            if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
+                // Update your view with the new text here
+                self.delegate?.didReceiveLogEntry(value: line)
+            } else {
+                self.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
+            }
+        }
+        task?.standardOutput = output
+
+        let errorOutput = Pipe()
+        let errorhandle = errorOutput.fileHandleForReading
+        errorhandle.readabilityHandler = { pipe in
+            if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
+                // Update your view with the new text here
+                let message: String = "Error:\(line)"
+                self.delegate?.didReceiveLogEntry(value: message)
+            } else {
+                self.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
+            }
+        }
+        task?.standardError = errorOutput
         task?.launch()
     }
 
@@ -55,6 +100,13 @@ class ProcessHelper {
         task.launchPath = command.launchPath
         if let arguments = command.arguments {
             task.arguments = arguments
+        }
+        task.terminationHandler = { process in
+            if process.terminationStatus == 0 {
+                self.delegate?.didTerminateApp(normal: true)
+            } else {
+                self.delegate?.didTerminateApp(normal: false)
+            }
         }
         return task
     }

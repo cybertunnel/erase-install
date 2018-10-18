@@ -47,29 +47,37 @@ class Helper: NSObject, HelperAppProtocol, NSXPCListenerDelegate {
     }
 
     func getHelperVersion() {
+        sendMessageToMain(value: "Helper Version asked.")
         if let versionToSend = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String {
-            let xpcService = connectionToMain?.remoteObjectProxyWithErrorHandler { error -> Void in
-                NSLog("XPC error: \(error)")
-                } as? MainAppProtocol
-            xpcService?.didReceiveVersionOfHelper(version: versionToSend)
+            mainAppService()?.didReceiveVersionOfHelper(version: versionToSend)
         }
     }
 
     func runCommand(path: String, arguments: [String]?) {
+        sendMessageToMain(value: "Command Runs: path: \(path)")
         let command = CliCommand(launchPath: path, arguments: arguments)
         if activeProcessHelper != nil {
             activeProcessHelper = nil
         }
         activeProcessHelper = ProcessHelper.init(command: command)
+        activeProcessHelper?.delegate = self
         activeProcessHelper!.execute()
+        mainAppService()?.didStartWithCommand(command: "path: \(path), arguments: \(String(describing: arguments))")
+    }
+
+    func sendMessageToMain(value: String) {
+        mainAppService()?.didReceiveLog(value: value)
+    }
+
+    func mainAppService() -> MainAppProtocol? {
         let xpcService = connectionToMain?.remoteObjectProxyWithErrorHandler { error -> Void in
             NSLog("XPC error: \(error)")
             } as? MainAppProtocol
-        xpcService?.didStartWithCommand(command: "path: \(path), arguments: \(String(describing: arguments))")
+        return xpcService
     }
 
     // MARK: - NSXPCListenerDelegate
-// swiftlint:disable colon
+    // swiftlint:disable colon
     func listener(_ listener:NSXPCListener, shouldAcceptNewConnection connection: NSXPCConnection) -> Bool {
         connectionToMain = connection
         connectionToMain?.exportedInterface = NSXPCInterface(with: HelperAppProtocol.self)
@@ -78,5 +86,23 @@ class Helper: NSObject, HelperAppProtocol, NSXPCListenerDelegate {
         connectionToMain?.resume()
         return true
     }
-// swiftlint:enable colon
+    // swiftlint:enable colon
+
+}
+
+extension Helper: ProcessHelperProtocol {
+    func didTerminateApp(normal: Bool) {
+        // sever the active process helper
+        activeProcessHelper = nil
+        // inform delegate
+        mainAppService()?.didTerminateHelper(normal: normal)
+    }
+
+    func didReceiveErrorOutput(value: String) {
+        mainAppService()?.didReceiveErrorOutput(value: value)
+    }
+
+    func didReceiveLogEntry(value: String) {
+        sendMessageToMain(value: value)
+    }
 }

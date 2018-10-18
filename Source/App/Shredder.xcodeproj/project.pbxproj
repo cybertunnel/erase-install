@@ -6,9 +6,27 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3742BD26216CE423008ACE50 /* BuildBlessDebug */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3742BD28216CE423008ACE50 /* Build configuration list for PBXAggregateTarget "BuildBlessDebug" */;
+			buildPhases = (
+				3742BD27216CE423008ACE50 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = BuildBlessDebug;
+			productName = BuildRelease;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		373264492147A7230076278B /* nl.prowarehouse.ShredderHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		374D29032174A66E0077A52F /* LogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D29022174A66E0077A52F /* LogWindowController.swift */; };
+		374D29052174A6A10077A52F /* BackgroundWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D29042174A6A10077A52F /* BackgroundWindowController.swift */; };
+		374D29072174A7620077A52F /* LogContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D29062174A7620077A52F /* LogContent.swift */; };
+		374D290B2174ABF80077A52F /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D290A2174ABF80077A52F /* LogViewController.swift */; };
 		374FAF66214146B800174657 /* InstallerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FAF65214146B800174657 /* InstallerApp.swift */; };
+		3752B9582177793700B8AFEB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B9572177793700B8AFEB /* Enums.swift */; };
 		3759F8DF216353EA00BA6346 /* ValidationChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */; };
 		3759F8E121636E1700BA6346 /* EraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8E021636E1700BA6346 /* EraseView.swift */; };
 		378B6E472148CFB7007A3348 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378B6E462148CFB7007A3348 /* NotificationCenter.framework */; };
@@ -30,6 +48,7 @@
 		37CC407C21199AF200C22BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC407B21199AF200C22BB4 /* AppDelegate.swift */; };
 		37CC407E21199AF200C22BB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC407D21199AF200C22BB4 /* ViewController.swift */; };
 		37CC408321199AF400C22BB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC408121199AF400C22BB4 /* Main.storyboard */; };
+		37D5BAC2216CAA1B0032407D /* nl.prowarehouse.ShredderHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		37DD1808215A20A900FB220B /* PickInstallerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD1807215A20A900FB220B /* PickInstallerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +59,7 @@
 			dstPath = Contents/Library/LaunchServices;
 			dstSubfolderSpec = 1;
 			files = (
-				373264492147A7230076278B /* nl.prowarehouse.ShredderHelper in CopyFiles */,
+				37D5BAC2216CAA1B0032407D /* nl.prowarehouse.ShredderHelper in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +75,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		374D29022174A66E0077A52F /* LogWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWindowController.swift; sourceTree = "<group>"; };
+		374D29042174A6A10077A52F /* BackgroundWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundWindowController.swift; sourceTree = "<group>"; };
+		374D29062174A7620077A52F /* LogContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogContent.swift; sourceTree = "<group>"; };
+		374D290A2174ABF80077A52F /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		374FAF65214146B800174657 /* InstallerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerApp.swift; sourceTree = "<group>"; };
+		3752B9572177793700B8AFEB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationChecklistView.swift; sourceTree = "<group>"; };
 		3759F8E021636E1700BA6346 /* EraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseView.swift; sourceTree = "<group>"; };
 		378B6E462148CFB7007A3348 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		3791FD1A2164946000B3289C /* SearchInstallers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInstallers.swift; sourceTree = "<group>"; };
 		3791FD1D2164959E00B3289C /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
+		379A39F4216618BA007BA806 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nl.prowarehouse.ShredderHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A6B513211AC87500AC2EA2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		37A6B519211ACADF00AC2EA2 /* ShredderHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ShredderHelper-Info.plist"; sourceTree = "<group>"; };
@@ -120,6 +145,7 @@
 				37CC408421199AF400C22BB4 /* Info.plist */,
 				37CC408521199AF400C22BB4 /* Shredder.entitlements */,
 				37B66CEC2158C0C500EC866F /* Localizable.strings */,
+				3752B9572177793700B8AFEB /* Enums.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -140,6 +166,7 @@
 			children = (
 				374FAF65214146B800174657 /* InstallerApp.swift */,
 				3791FD1A2164946000B3289C /* SearchInstallers.swift */,
+				374D29062174A7620077A52F /* LogContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +177,7 @@
 				37CC407D21199AF200C22BB4 /* ViewController.swift */,
 				37DD1807215A20A900FB220B /* PickInstallerViewController.swift */,
 				37AD2433215A36DA00436AC9 /* ValidationViewController.swift */,
+				374D290A2174ABF80077A52F /* LogViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				37AD2431215A2ECC00436AC9 /* MainWindowController.swift */,
+				374D29042174A6A10077A52F /* BackgroundWindowController.swift */,
+				374D29022174A66E0077A52F /* LogWindowController.swift */,
 			);
 			path = WindowController;
 			sourceTree = "<group>";
@@ -267,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37CC408821199AF400C22BB4 /* Build configuration list for PBXNativeTarget "Shredder" */;
 			buildPhases = (
+				373526492168A9B2000655CB /* Set Bless Value in Helper Plist */,
 				37CC407421199AF200C22BB4 /* Sources */,
 				37CC407521199AF200C22BB4 /* Frameworks */,
 				37CC407621199AF200C22BB4 /* Resources */,
@@ -317,6 +348,8 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
+				de,
 			);
 			mainGroup = 37CC406F21199AF200C22BB4;
 			productRefGroup = 37CC407921199AF200C22BB4 /* Products */;
@@ -325,6 +358,7 @@
 			targets = (
 				37CC407721199AF200C22BB4 /* Shredder */,
 				37A6B510211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */,
+				3742BD26216CE423008ACE50 /* BuildBlessDebug */,
 			);
 		};
 /* End PBXProject section */
@@ -362,6 +396,42 @@
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$SRCROOT/Shredder/Resources/Info.plist\")\n\nbuildNumberDec=$(($buildNumber + 1))\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumberDec\" \"$SRCROOT/Shredder/Resources/Info.plist\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumberDec\" \"$SRCROOT/ShredderHelper/ShredderHelper-Info.plist\"\n";
 		};
+		373526492168A9B2000655CB /* Set Bless Value in Helper Plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Bless Value in Helper Plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+";
+		};
+		3742BD27216CE423008ACE50 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p build\n# Build Release using xcodebuild\nxcodebuild clean build -project Shredder.xcodeproj -scheme Shredder -configuration \"Debug\" -sdk \"macosx10.14\" -derivedDataPath \"build\"\n# use bless tool with the build release application\n../Util/SMJobBlessUtil.py setreq \"build/Build/Products/Debug/EraseInstall.app\" \"Shredder/Resources/Info.plist\" \"ShredderHelper/ShredderHelper-Info.plist\"\n";
+		};
 		375F480221654196009FEC63 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,12 +468,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374D29032174A66E0077A52F /* LogWindowController.swift in Sources */,
 				3759F8DF216353EA00BA6346 /* ValidationChecklistView.swift in Sources */,
 				37AD242F215A2B0E00436AC9 /* ViewControllerExtension.swift in Sources */,
+				374D290B2174ABF80077A52F /* LogViewController.swift in Sources */,
 				37CC407E21199AF200C22BB4 /* ViewController.swift in Sources */,
 				374FAF66214146B800174657 /* InstallerApp.swift in Sources */,
 				37AD2434215A36DA00436AC9 /* ValidationViewController.swift in Sources */,
 				37CC407C21199AF200C22BB4 /* AppDelegate.swift in Sources */,
+				374D29072174A7620077A52F /* LogContent.swift in Sources */,
 				37A6B51D211ADA0D00AC2EA2 /* XPCProtocols.swift in Sources */,
 				37A6B520211ADDF000AC2EA2 /* XPCService.swift in Sources */,
 				3791FD1E2164959E00B3289C /* ValidationHelper.swift in Sources */,
@@ -411,7 +484,9 @@
 				37AD2432215A2ECC00436AC9 /* MainWindowController.swift in Sources */,
 				3759F8E121636E1700BA6346 /* EraseView.swift in Sources */,
 				37AD2437215A5BBB00436AC9 /* PickInstallerItem.swift in Sources */,
+				374D29052174A6A10077A52F /* BackgroundWindowController.swift in Sources */,
 				37DD1808215A20A900FB220B /* PickInstallerViewController.swift in Sources */,
+				3752B9582177793700B8AFEB /* Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +497,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				37B66CEB2158C0C500EC866F /* en */,
+				379A39F4216618BA007BA806 /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -437,6 +513,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3742BD29216CE423008ACE50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3742BD2A216CE423008ACE50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		37A6B515211AC87500AC2EA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -520,6 +614,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODESIGN_APP = "identifier \"nl.prowarehouse.ShredderHelper\" and anchor apple generic and certificate leaf[subject.CN] = \"Mac Developer: Arnold Nefkens (584M2M88H2)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */";
+				CODESIGN_HELPER = "identifier \"nl.prowarehouse.Shredder\" and anchor apple generic and certificate leaf[subject.CN] = \"Mac Developer: Arnold Nefkens (584M2M88H2)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -581,6 +677,8 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODESIGN_APP = "anchor apple generic and identifier \"nl.prowarehouse.ShredderHelper\" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R55HK5K86Y)";
+				CODESIGN_HELPER = "anchor apple generic and identifier \"nl.prowarehouse.Shredder\" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R55HK5K86Y)";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -647,6 +745,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3742BD28216CE423008ACE50 /* Build configuration list for PBXAggregateTarget "BuildBlessDebug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3742BD29216CE423008ACE50 /* Debug */,
+				3742BD2A216CE423008ACE50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		37A6B517211AC87500AC2EA2 /* Build configuration list for PBXNativeTarget "nl.prowarehouse.ShredderHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
