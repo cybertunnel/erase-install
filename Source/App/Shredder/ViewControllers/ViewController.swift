@@ -78,7 +78,7 @@ class ViewController: NSViewController {
         continueButton.isHidden = false
     }
 
-    func changeToQuitState(message: String) {
+    private func changeToQuitState(message: String) {
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("sorryKey", comment: "Sorry")
         alert.informativeText = message

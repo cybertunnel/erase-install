@@ -55,6 +55,21 @@ protocol MainAppProtocol {
     ///
     /// - Parameter command: The command send to help.
     func didStartWithCommand(command: String)
+
+    /// Callback to inform log entry is received.
+    ///
+    /// - Parameter value: String value of log entry
+    func didReceiveLog(value: String)
+
+    /// Callback to inform error output is receieved.
+    ///
+    /// - Parameter value: String value of Error output.
+    func didReceiveErrorOutput(value: String)
+
+    /// Callback to inform task is terminated.
+    ///
+    /// - Returns: True if normal, false if not.
+    func didTerminateHelper(normal: Bool)
 }
 
 /// Protocol to enable callbacks to inform the delegate, which will be the object you have setup as a XPC client.
@@ -69,9 +84,18 @@ protocol XPCServiceClientProtocol: class {
 
     /// Callback to inform delegate that the connection with the helper is lost.
     func connectionLost()
+
+    /// Callback to inform when installing helper connection is lost.
+    func connectionLostWhileInstallingHelper()
+
+    /// Callback to inform UI that task is exited.
+    ///
+    /// - Parameter normal: Bool: True when normal, else false.
+    func taskIsTerminated(normal: Bool)
 }
 
 /// Conveniance Struct for the service names
+#warning("Change the name to your chosen helper name.")
 struct HelperConstants {
     static let helperServiceName = "nl.prowarehouse.ShredderHelper"
     static let mainServiceName = "nl.prowarehouse.Shredder"

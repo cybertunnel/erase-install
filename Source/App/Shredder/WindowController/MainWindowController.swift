@@ -54,24 +54,3 @@ class MainWindowController: NSWindowController {
         NSApp.windows[0].level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.maximumWindow)))
     }
 }
-
-class Background: NSWindowController {
-
-    override func windowDidLoad() {
-        super.windowDidLoad()
-
-        if let backgroundWindow = self.window,
-            let mainDisplayFrame = NSScreen.main?.frame,
-            let mainScreenFrame = NSScreen.main?.frame,
-            let mainScreenOrigin = NSScreen.main?.frame.origin {
-            backgroundWindow.contentRect(forFrameRect: mainDisplayFrame)
-            backgroundWindow.setFrame(mainScreenFrame, display: true)
-            backgroundWindow.setFrameOrigin(mainScreenOrigin)
-            backgroundWindow.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.maximumWindow) - 1 ))
-        }
-    }
-
-    func sendToBackground() {
-        self.window?.orderBack(self)
-    }
-}

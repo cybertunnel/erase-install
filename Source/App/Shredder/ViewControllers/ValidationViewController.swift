@@ -29,18 +29,10 @@ import AppKit
 import Cocoa
 import QuartzCore
 
-enum ProgressState: Int {
-    case checkForNetwork = 0
-    case checkingForFindMyMac
-    case searchingForInstaller
-    case startEraseInstall
-    case quit
-}
-
 let animationDuration: Double = 0.6
 let animationTimingFunction: CAMediaTimingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeIn)
 
-class ValidationViewController: NSViewController {
+class ValidationViewController: NSViewController, Logging {
 
     // MARK: - Properties
     @IBOutlet private var continueButton: NSButton!
@@ -52,7 +44,7 @@ class ValidationViewController: NSViewController {
 
     // Helper Properties
     private let searchInstaller: SearchInstallers = SearchInstallers()
-    private var progressState: ProgressState = ProgressState.checkingForFindMyMac
+    private var progressState: ValidationViewControllProgressState = ValidationViewControllProgressState.checkForBattery
     private let xpcClient: XPCServiceClient = XPCServiceClient()
     private let validationHelper: ValidationHelper = ValidationHelper()
 
@@ -78,7 +70,7 @@ class ValidationViewController: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
 
-        if progressState == ProgressState.checkingForFindMyMac {
+        if progressState == ValidationViewControllProgressState.checkForBattery {
             executeChecks()
         }
 
@@ -111,12 +103,14 @@ class ValidationViewController: NSViewController {
                                               comment: "Start Erase & Install"),
                             NSLocalizedString("cancelButtonKey",
                                               comment: "Cancel")]
-        let alert = customAlert(messageText: NSLocalizedString("warningKey",
+        let alert = customAlert(messageTitle: NSLocalizedString("warningKey",
                                                                comment: "Warning"),
                                 buttonLabels: buttonLabels)
         alert.informativeText = alertText
+
         alert.beginSheetModal(for: self.view.window!) { (response) in
-            if response.rawValue == 1001 {
+            let cancelButtonResponseID = 1001
+            if response.rawValue == cancelButtonResponseID {
                 self.moveToStartState()
             } else {
                 if self.xpcClient.checkIfHelperInstalled() {
@@ -129,8 +123,7 @@ class ValidationViewController: NSViewController {
     }
 
     @IBAction func quitAction(_ sender: Any) {
-        progressState = .quit
-        executeChecks()
+        moveToQuitApp()
     }
 
     // MARK: - Public Functions
@@ -150,16 +143,25 @@ class ValidationViewController: NSViewController {
     }
 
     private func prepareAndExecuteCommand() {
+        log(message: "Validation: Starting Command to send")
         if let installerSelected = selectedInstaller {
+
+            let arguments: [String] = ["--agreetolicense", "--eraseinstall"]
+            var limit: Double = 300.0
+            if installerSelected.version >= "14.0" {
+                limit = 600.0
+            }
+
             let completeCommandPath = "\(installerSelected.path)/Contents/Resources/startosinstall"
             let command = CommandToSend(launchPath: completeCommandPath,
-                                        launchArguments: ["--agreetolicense", "--eraseinstall"])
-//            let command = CommandToSend(launchPath: "/usr/sbin/systemsetup", launchArguments: ["-getremotelogin"])
+                                        launchArguments: arguments)
+//            let command = CommandToSend(launchPath: "/usr/sbin/system_profiler", launchArguments: [])
             self.xpcClient.sendCommandToHelper(command: command)
             self.continueButton.isHidden = true
             self.validationContainer.isHidden = true
             self.headerTitle.stringValue = NSLocalizedString("headerTitleEraseIsRunning", comment: "Erase is active")
-            self.eraseContainer.displayEraseView(icon: installerSelected.icon)
+
+            self.eraseContainer.displayEraseView(icon: installerSelected.icon, limit: limit)
             self.quitButton.isHidden = true
             self.isEraseCommandRunning = true
         }
@@ -169,31 +171,21 @@ class ValidationViewController: NSViewController {
     private func executeChecks() {
         self.continueButton.isEnabled = false
         switch progressState {
+        case .checkForBattery:
+            log(message: "Validation: Battery Status")
+            validateBattery()
         case .checkingForFindMyMac:
-            if validationHelper.checkFindMyMac() {
-                hasFindMyMacEnabled = true
-                validationContainer.setLabel(labelType: .findMyMac, error: true)
-                progressState = ProgressState.checkForNetwork
-                self.executeChecks()
-            } else {
-                // Move to next phase
-                progressState = ProgressState.checkForNetwork
-                validationContainer.setLabel(labelType: .findMyMac, error: false)
-                self.executeChecks()
-            }
+            log(message: "Validation: Find My Mac Status")
+            validateFindMyMac()
         case .checkForNetwork:
-            if validationHelper.checkNetworkConnection() {
-                validationContainer.setLabel(labelType: .network, error: false)
-            } else {
-                hasNoNetwork = true
-                validationContainer.setLabel(labelType: .network, error: true)
-            }
-            progressState = ProgressState.searchingForInstaller
-            self.executeChecks()
+            log(message: "Validation: Network Status")
+            validateNetwork()
         case .searchingForInstaller:
+             log(message: "Validation: Search for Installer Status")
             // Start Searching
             searchInstaller.searchForInstallerApp()
         case .startEraseInstall:
+             log(message: "Validation: Start Erase & Install")
             validationContainer.animate()
         case .quit:
             NSApp.terminate(self)
@@ -201,6 +193,67 @@ class ValidationViewController: NSViewController {
     }
 
     // MARK: - Private Functions
+    private func validateFindMyMac() {
+        if validationHelper.checkFindMyMac() {
+            log(message: "Validation: Find My Mac Status: Fail")
+            hasFindMyMacEnabled = true
+            validationContainer.setLabel(labelType: .findMyMac, error: true)
+            progressState = ValidationViewControllProgressState.checkForNetwork
+            executeChecks()
+        } else {
+            // Move to next phase
+            log(message: "Validation: Find My Mac Status: Pass")
+            progressState = ValidationViewControllProgressState.checkForNetwork
+            validationContainer.setLabel(labelType: .findMyMac, error: false)
+            executeChecks()
+        }
+    }
+
+    private func validateNetwork() {
+        if validationHelper.checkNetworkConnection() {
+            log(message: "Validation: Network Status: Pass")
+            validationContainer.setLabel(labelType: .network, error: false)
+        } else {
+            log(message: "Validation: Network Status: Fail")
+            hasNoNetwork = true
+            validationContainer.setLabel(labelType: .network, error: true)
+        }
+        progressState = ValidationViewControllProgressState.searchingForInstaller
+        executeChecks()
+    }
+
+    private func validateBattery() {
+        let batteryCapacityTreshold = 50
+        if validationHelper.isRunningOnBattery(), validationHelper.currentBattryLevel() < batteryCapacityTreshold {
+            log(message: "Validation: Battery Status: Fail")
+            displayBatteryErrorAlert()
+        } else {
+            log(message: "Validation: Battery Status: Pass")
+            progressState = .checkingForFindMyMac
+            executeChecks()
+        }
+    }
+
+    private func displayBatteryErrorAlert() {
+        let currentCapacity = validationHelper.currentBattryLevel()
+        let quitButtonTitle = NSLocalizedString("quitKey",
+                                                comment: "Quit")
+        let errorTitle = NSLocalizedString("runningBatteryAlertTitleKey",
+                                           comment: "Title when running on battery")
+        let errorPrefix = NSLocalizedString("runningBatteryAlertMessageKey",
+                                            comment: "Prefix message")
+        let errorCurrentCapacity = NSLocalizedString("runningBatteryAlertCurrentCapacityKey",
+                                                     comment: "Current Capacity Prefix")
+
+        let errorMessage = "\(errorPrefix)\(errorCurrentCapacity) \(currentCapacity)%"
+
+        let alert = customAlert(messageTitle: errorTitle, buttonLabels: [quitButtonTitle])
+        alert.informativeText = errorMessage
+        alert.beginSheetModal(for: self.view.window!) { (response) in
+            self.moveToQuitApp()
+        }
+    }
+
     /// Displays an Sheet with an alert. It will inform the user which checks failed.
     private func displayErrorAlert() {
         var errorMessage = ""
@@ -214,18 +267,17 @@ class ValidationViewController: NSViewController {
                                                          comment: "No Network")
         }
         if hasFindMyMacEnabled {
-            errorMessage += newLines + NSLocalizedString("findMyMacContentLabelKey",
-                                                         comment: "Find My Mac Disabled")
+            errorMessage += newLines + NSLocalizedString("findMyMacEnabledMessageKey",
+                                                         comment: "Find My Mac Enabled")
         }
 
-        let alert = customAlert(messageText: NSLocalizedString("sorryKey",
+        let alert = customAlert(messageTitle: NSLocalizedString("sorryKey",
                                                                comment: "Sorry"),
                                 buttonLabels: [NSLocalizedString("quitKey",
                                                                  comment: "Quit")])
         alert.informativeText = errorMessage
         alert.beginSheetModal(for: self.view.window!) { (response) in
-            self.progressState = ProgressState.quit
-            self.executeChecks()
+            self.moveToQuitApp()
         }
     }
 
@@ -236,10 +288,15 @@ class ValidationViewController: NSViewController {
         }
     }
 
+    private func moveToQuitApp() {
+        self.progressState = ValidationViewControllProgressState.quit
+        self.executeChecks()
+    }
+
     private func displayInstallUodatedVersionOfHelperAlert() {
         let buttonLabels: [String] = [NSLocalizedString("installHelperButtonKey",
                                                         comment: "Install Helper")]
-        let alert = customAlert(messageText: NSLocalizedString("sorryKey",
+        let alert = customAlert(messageTitle: NSLocalizedString("sorryKey",
                                                                comment: "Sorry"),
                                 buttonLabels: buttonLabels)
         alert.informativeText = NSLocalizedString("messeageInstallHelperAlertKey",
@@ -249,9 +306,9 @@ class ValidationViewController: NSViewController {
         }
     }
 
-    private func customAlert(messageText: String, buttonLabels: [String]) -> NSAlert {
+    private func customAlert(messageTitle: String, buttonLabels: [String]) -> NSAlert {
         let alert = NSAlert()
-        alert.messageText = messageText
+        alert.messageText = messageTitle
         alert.alertStyle = .critical
         for buttonLabel in buttonLabels {
             alert.addButton(withTitle: buttonLabel)
@@ -261,22 +318,33 @@ class ValidationViewController: NSViewController {
 }
 
 extension ValidationViewController: XPCServiceClientProtocol {
+    func taskIsTerminated(normal: Bool) {
+        NSLog("Task Terminated: \(normal)")
+    }
+
     func connectionLost() {
         // Try again
-        NSLog("Send the command again.")
+        log(message: "Validation: Helper Connection lost.")
+    }
+
+    func connectionLostWhileInstallingHelper() {
+        log(message: "Validation: Helper Connection lost.")
         prepareAndExecuteCommand()
     }
 
     func didReceiveVersion(value: String) {
         let localVersion = xpcClient.versionOfInstalledDeamon()
         if value == localVersion {
+            log(message: "Validation: Helper versions do match")
             self.prepareAndExecuteCommand()
         } else {
+            log(message: "Validation: Helper versions do not match")
             self.displayInstallUodatedVersionOfHelperAlert()
         }
     }
 
     func didInstallHelper() {
+        log(message: "Validation: Helper Installed")
         prepareAndExecuteCommand()
     }
 }
@@ -301,18 +369,21 @@ extension ValidationViewController: PickInstallerViewControllerProtocol {
 
 extension ValidationViewController: SearchInstallersProtocol {
     func didFindInstallers(installers: [InstallerApp]) {
-        progressState = ProgressState.startEraseInstall
+        progressState = ValidationViewControllProgressState.startEraseInstall
         if installers.count == 0 {
+            log(message: "Validation: Search for Installer Status: No Installer found.")
             hasNoInstallerFound = true
             validationContainer.setLabel(labelType: .installer, error: true, installerName: "")
             executeChecks()
         } else if installers.count == 1, let installer = installers.first {
+            log(message: "Validation: Search for Installer Status: One installer found.")
             let displayName: String = "\(installer.displayName) (\(installer.version))"
             validationContainer.setLabel(labelType: .installer, error: false, installerName: displayName)
             selectedInstaller = installer
             executeChecks()
         } else {
             // We have found more then one installer
+            log(message: "Validation: Search for Installer Status: Mulitple installers found.")
             // display Picker
             let customWindow = self.view.window?.windowController as? MainWindowController
             if let pickerViewController = customWindow?.pickerViewController as? PickInstallerViewController {

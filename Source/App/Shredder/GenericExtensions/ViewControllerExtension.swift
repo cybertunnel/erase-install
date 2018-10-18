@@ -28,6 +28,11 @@ import Foundation
 import AppKit
 
 extension NSViewController {
+
+    /// Extension to NSViewController
+    ///
+    /// Switches the view controller presented in the same window with the destination viewcontroller.
+    /// - Parameter toDisplayViewController: Destination ViewController
     func switchViewController(toDisplayViewController: NSViewController) {
         self.view.window?.contentViewController = toDisplayViewController
         self.view.window?.contentView = toDisplayViewController.view
