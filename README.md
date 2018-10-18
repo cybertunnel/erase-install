@@ -47,6 +47,11 @@ Source
 
 The source of the application can be found in the folder [Source](./Source/).
 
+Release Notes
+===================================
+ 
+[Release Notes](./RELEASENOTES.md/).
+
 License
 ===================================
 Copyright ©2018 Pro Warehouse.

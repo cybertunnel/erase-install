@@ -35,7 +35,6 @@ Although this documenation of Apple is no longer being updated it still contains
 
 ![](./readMe_images/classDiagram.png)
 
-
 Signing
 ===================================
 
@@ -54,7 +53,6 @@ However in order to be able to sign both targets successfully, you need to take 
 
 It is not possible to use the Automated Signing from within Xcode. Due to the signature matching between helper and app.
 
-
 Using SMJobBlessUtil.py to set the signature.
 ===================================
 
@@ -67,6 +65,14 @@ After using the bless tool, you need to build again to use the build.
 You can also use the tool to validate the signature by using the flag 'check'.
 
 `Util/SMJobBlessUtil.py check <path to build>`
+	
+
+Target 'BuildBlessDebug'
+===================================
+
+The target is created to help with the preparing the source for the building and signing the Debug build. This target follows the rythem explained in 'Using SMJobBlessUtil.py to set the signature.' section. 
+
+The script uses set values to use the bless util to add the correct signature to the info plists. When you change names of the application and or names of these plist files, you need to update the script as well.
 
 
 License
