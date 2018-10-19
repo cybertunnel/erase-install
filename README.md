@@ -25,7 +25,7 @@ Requirements
 Installation
 ===================================
 
-1. Download the installer pkg. ( [Click here](./InstallPackage/EraseInstall-1.0.1.pkg) )
+1. Download the installer pkg. ( [Click here](https://bitbucket.org/prowarehouse-nl/erase-install/downloads/) )
 2. Install the EraseInstall app using the installer. 
 
 Prerequisites

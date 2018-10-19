@@ -720,7 +720,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="256" height="256"/>
+        <image name="Logo" width="512" height="512"/>
         <image name="cancel" width="30" height="30"/>
         <image name="checkmark" width="30" height="30"/>
         <image name="emptygenericdisplay" width="399" height="302"/>
