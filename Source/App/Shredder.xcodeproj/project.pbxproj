@@ -80,6 +80,12 @@
 		374D29062174A7620077A52F /* LogContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogContent.swift; sourceTree = "<group>"; };
 		374D290A2174ABF80077A52F /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		374FAF65214146B800174657 /* InstallerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerApp.swift; sourceTree = "<group>"; };
+		3752B9382177113A00B8AFEB /* EraseInstallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseInstallTests.swift; sourceTree = "<group>"; };
+		3752B93A2177113A00B8AFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3752B9422177157C00B8AFEB /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		3752B94A21771AEB00B8AFEB /* EraseInstallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseInstallUITests.swift; sourceTree = "<group>"; };
+		3752B94C21771AEB00B8AFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3752B9532177211D00B8AFEB /* ViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUITests.swift; sourceTree = "<group>"; };
 		3752B9572177793700B8AFEB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationChecklistView.swift; sourceTree = "<group>"; };
 		3759F8E021636E1700BA6346 /* EraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseView.swift; sourceTree = "<group>"; };
@@ -171,6 +177,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3752B9372177113A00B8AFEB /* EraseInstallTests */ = {
+			isa = PBXGroup;
+			children = (
+				3752B9382177113A00B8AFEB /* EraseInstallTests.swift */,
+				3752B93A2177113A00B8AFEB /* Info.plist */,
+				3752B9422177157C00B8AFEB /* ViewControllerTests.swift */,
+			);
+			path = EraseInstallTests;
+			sourceTree = "<group>";
+		};
+		3752B94921771AEB00B8AFEB /* EraseInstallUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3752B94A21771AEB00B8AFEB /* EraseInstallUITests.swift */,
+				3752B94C21771AEB00B8AFEB /* Info.plist */,
+				3752B9532177211D00B8AFEB /* ViewControllerUITests.swift */,
+			);
+			path = EraseInstallUITests;
+			sourceTree = "<group>";
+		};
 		376CD8FB211C1409008ED726 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +270,8 @@
 				37A6B51B211AD9F600AC2EA2 /* XPC */,
 				37CC407A21199AF200C22BB4 /* Shredder */,
 				37A6B512211AC87500AC2EA2 /* ShredderHelper */,
+				3752B9372177113A00B8AFEB /* EraseInstallTests */,
+				3752B94921771AEB00B8AFEB /* EraseInstallUITests */,
 				37CC407921199AF200C22BB4 /* Products */,
 				378B6E452148CFB7007A3348 /* Frameworks */,
 			);
