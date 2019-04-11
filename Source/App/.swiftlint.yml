@@ -1,0 +1,7 @@
+included:
+- XPC
+- Shredder
+- ShredderHelper
+
+excluded:
+- Frameworks

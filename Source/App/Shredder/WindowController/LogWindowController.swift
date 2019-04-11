@@ -27,6 +27,11 @@
 import Cocoa
 import Foundation
 
+enum MenuItemTag: Int {
+    case viewMenu = 1000
+    case hideLoggingMenu = 1001
+}
+
 class LogWindowController: NSWindowController {
 
     override func windowDidLoad() {
@@ -35,6 +40,15 @@ class LogWindowController: NSWindowController {
         if let logWindow = self.window {
             logWindow.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.maximumWindow) + 1 ))
         }
+
+        let viewMenu = NSApp.mainMenu?.item(withTag: MenuItemTag.viewMenu.rawValue)
+        let closeLoggingMenuItem = viewMenu?.submenu?.item(withTag: MenuItemTag.hideLoggingMenu.rawValue)
+        closeLoggingMenuItem?.target = self
+        closeLoggingMenuItem?.action = #selector(closeWindow)
+    }
+
+    @objc func closeWindow() {
+        self.window?.close()
     }
 
 }

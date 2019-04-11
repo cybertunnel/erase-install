@@ -43,7 +43,16 @@ struct InstallerApp {
     }
 
     var canErase: Bool {
-        return (self.version > "13.4")
+        let osVersion = ProcessInfo.processInfo.operatingSystemVersion
+        let osVersionValue = "\(osVersion.minorVersion).\(osVersion.patchVersion)"
+        if osVersion.minorVersion >= 14
+            && ( osVersion.minorVersion == 14 && osVersion.patchVersion >= 2 )
+            && ( self.version < osVersionValue ) {
+            return false
+        }
+
+        let value = (self.version > "13.4")
+        return value
     }
 
     var displayName: String {

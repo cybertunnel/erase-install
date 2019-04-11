@@ -69,25 +69,26 @@ class ProcessHelper: NSObject {
         delegate?.didReceiveLogEntry(value: "Helper: Command starting Execution")
         let output = Pipe()
         let outputHandle = output.fileHandleForReading
-        outputHandle.readabilityHandler = { pipe in
+        outputHandle.readabilityHandler = { [weak self] pipe in
             if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
                 // Update your view with the new text here
-                self.delegate?.didReceiveLogEntry(value: line)
+                self?.delegate?.didReceiveLogEntry(value: line)
             } else {
-                self.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
+                self?.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
             }
         }
         task?.standardOutput = output
 
         let errorOutput = Pipe()
         let errorhandle = errorOutput.fileHandleForReading
-        errorhandle.readabilityHandler = { pipe in
+        errorhandle.readabilityHandler = { [weak self] pipe in
             if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
                 // Update your view with the new text here
                 let message: String = "Error:\(line)"
-                self.delegate?.didReceiveLogEntry(value: message)
+                self?.delegate?.didReceiveLogEntry(value: message)
+
             } else {
-                self.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
+                self?.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
             }
         }
         task?.standardError = errorOutput
@@ -101,12 +102,24 @@ class ProcessHelper: NSObject {
         if let arguments = command.arguments {
             task.arguments = arguments
         }
-        task.terminationHandler = { process in
+        task.terminationHandler = { [weak self] process in
             if process.terminationStatus == 0 {
-                self.delegate?.didTerminateApp(normal: true)
+                self?.delegate?.didTerminateApp(normal: true)
             } else {
-                self.delegate?.didTerminateApp(normal: false)
+                self?.delegate?.didTerminateApp(normal: false)
             }
+
+            // cleanup
+            if let stderr = process.standardError as? Pipe {
+                stderr.fileHandleForReading.readabilityHandler = nil
+            }
+            if let stdout = process.standardOutput as? Pipe {
+                stdout.fileHandleForReading.readabilityHandler = nil
+            }
+            process.standardError = nil
+            process.standardOutput = nil
+            self?.delegate = nil
+            self?.task = nil
         }
         return task
     }
