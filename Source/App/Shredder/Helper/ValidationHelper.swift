@@ -169,4 +169,60 @@ class ValidationHelper: NSObject, Logging {
 
         return (isReachable && !needsConnection)
     }
+
+    /// Generates the Arguments to be send to the startosinstall command.
+    ///
+    /// Will search a fixed loction for .pkg files. When found any, they are added to the startosinstall command.
+    /// Will always return always an array with the two minimum arguments to use: --agreetolicense & --eraseinstall
+    ///
+    /// - Returns: Array of Strings, that hold the additional arguments.
+    func fetchStartOSInstallArguments() -> [String] {
+        var argumentsForStartOSInstall: [String] = ["--agreetolicense", "--eraseinstall"]
+        do {
+            let pathForInstallersFolder: String = "/Library/Application Support/EraseInstall/Packages/"
+            let URLFullPath: URL = URL(fileURLWithPath: pathForInstallersFolder)
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: URLFullPath,
+                                                                                includingPropertiesForKeys: nil,
+                                                                                options: [])
+
+            // Filtered on .pkg files
+            let installersFound = directoryContents.filter { $0.pathExtension == "pkg" }
+                                .sorted(by: { $0.lastPathComponent < $1.lastPathComponent })
+            if installersFound.count > 0 {
+                log(message: "Packages found.")
+                for installer in installersFound {
+                    // validate the package
+                    if validatePackage(path: installer.path) {
+                        argumentsForStartOSInstall.append("--installpackage")
+                        argumentsForStartOSInstall.append(installer.path)
+                        log(message: "Package: \(installer.path)")
+                    }
+                }
+            }
+        } catch {
+            log(message: "No Additional Packages found.")
+        }
+
+        return argumentsForStartOSInstall
+    }
+
+    /// Validats the found installer.
+    ///
+    /// - Parameter path: String to the package
+    /// - Returns: True if package is correct.
+    private func validatePackage(path: String) -> Bool {
+        //Fetch URL of Validation Script
+        let pathToPackageValidator = Bundle.main.path(forResource: "ValidatePackage", ofType: "sh")
+        let task = Process()
+        task.launchPath = pathToPackageValidator
+        task.arguments = [path]
+        task.launch()
+        task.waitUntilExit()
+        let status = task.terminationStatus
+        if status == 0 {
+            return true
+        }
+
+        return false
+    }
 }

@@ -83,7 +83,8 @@ class ValidationViewController: NSViewController, Logging {
                 context.allowsImplicitAnimation = true
 
                 self.quitButton.isHidden = false
-                self.continueLeadingConstraint.animator().constant = 86.0
+                let constantValue = ContinueButtonLeading.normalConstraintConstant.rawValue
+                self.continueLeadingConstraint.animator().constant = constantValue
             }, completionHandler: {
                 self.executeChecks()
             })
@@ -146,7 +147,8 @@ class ValidationViewController: NSViewController, Logging {
         log(message: "Validation: Starting Command to send")
         if let installerSelected = selectedInstaller {
 
-            let arguments: [String] = ["--agreetolicense", "--eraseinstall"]
+            let arguments: [String] = validationHelper.fetchStartOSInstallArguments()
+            log(message: "startos arguments: \(arguments)")
             var limit: Double = 300.0
             if installerSelected.version >= "14.0" {
                 limit = 600.0
@@ -223,7 +225,7 @@ class ValidationViewController: NSViewController, Logging {
     }
 
     private func validateBattery() {
-        let batteryCapacityTreshold = 50
+        let batteryCapacityTreshold = 60
         if validationHelper.isRunningOnBattery(), validationHelper.currentBattryLevel() < batteryCapacityTreshold {
             log(message: "Validation: Battery Status: Fail")
             displayBatteryErrorAlert()
@@ -249,7 +251,7 @@ class ValidationViewController: NSViewController, Logging {
 
         let alert = customAlert(messageTitle: errorTitle, buttonLabels: [quitButtonTitle])
         alert.informativeText = errorMessage
-        alert.beginSheetModal(for: self.view.window!) { (response) in
+        alert.beginSheetModal(for: self.view.window!) { _ in
             self.moveToQuitApp()
         }
     }
@@ -260,14 +262,14 @@ class ValidationViewController: NSViewController, Logging {
         let newLines = "\n\n"
         if hasNoInstallerFound {
             errorMessage = NSLocalizedString("noInstallerFoundErrorMessageKey",
-                                             comment: "No Installer Found")
+                                             comment: "No Installer Found") + newLines
         }
         if hasNoNetwork {
-            errorMessage += newLines + NSLocalizedString("noNetworkMessageKey",
-                                                         comment: "No Network")
+            errorMessage += NSLocalizedString("noNetworkMessageKey",
+                                                         comment: "No Network") + newLines
         }
         if hasFindMyMacEnabled {
-            errorMessage += newLines + NSLocalizedString("findMyMacEnabledMessageKey",
+            errorMessage += NSLocalizedString("findMyMacEnabledMessageKey",
                                                          comment: "Find My Mac Enabled")
         }
 
@@ -276,7 +278,7 @@ class ValidationViewController: NSViewController, Logging {
                                 buttonLabels: [NSLocalizedString("quitKey",
                                                                  comment: "Quit")])
         alert.informativeText = errorMessage
-        alert.beginSheetModal(for: self.view.window!) { (response) in
+        alert.beginSheetModal(for: self.view.window!) { _ in
             self.moveToQuitApp()
         }
     }
@@ -301,7 +303,7 @@ class ValidationViewController: NSViewController, Logging {
                                 buttonLabels: buttonLabels)
         alert.informativeText = NSLocalizedString("messeageInstallHelperAlertKey",
                                                   comment: "Install Updated Helper")
-        alert.beginSheetModal(for: self.view.window!) { (response) in
+        alert.beginSheetModal(for: self.view.window!) { _ in
             self.xpcClient.installHelperDaemon()
         }
     }
@@ -363,7 +365,7 @@ extension ValidationViewController: ValidationCheckListViewProtocol {
 extension ValidationViewController: PickInstallerViewControllerProtocol {
     func didAnimateButtons() {
         quitButton.isHidden = true
-        continueLeadingConstraint.constant = 17.0
+        continueLeadingConstraint.constant = ContinueButtonLeading.animationConstraintConstant.rawValue
     }
 }
 

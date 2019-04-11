@@ -61,12 +61,18 @@ The EraseInstall application will look for package installers (pkg) files in the
 For this to work, the packages have to be 'distribution packages with an'product archives,' i.e. distribution packages with the `identifier` attribute set in the `product` key.
 
 Most package installers created with tools commonly used by Mac Administrators build component packages (also called ‘flat packages’). These contain the payload files that will be installed on the target system and optional installation scripts to modify the behavior.
-If you usually build your packages as component packages with `pkgbuild` or a similar tool, you can convert them to product archives with the `productbuild` command:
 
-```$ productbuild --package path/to/component.pkg --version 1.0 --identifier com.example.package productarchive.pkg
+If you usually build your packages as component packages with `pkgbuild` or a similar tool, you can convert them to product archives with the `productbuild` command:
+
 ```
-If you use a different tool to create your packages, please consult the tool’s manual or support reference whether they create component packages, distribution packages or product archives.
-- [munkipkg](https://github.com/munki/munki-pkg): will automatically create product archives when the `distribution_style` key is set to `true- [Whitebox Packages](http://s.sudre.free.fr/Software/Packages/about.html): identifier (id) and version can be set for a distribution package project when ‘Show Advanced User Options’ is enabled in Packages -> Preferences- [Jamf Composer](https://www.jamf.com/products/jamf-composer/): cannot create distribution packages or product archives. You can convert the component packages from Composer with the above `productbuild` command.- `pkgbuild` and most other tools: creates component packages which you can convert using the above `productbuild` command
+$ productbuild --package path/to/component.pkg --version 1.0 --identifier com.example.package productarchive.pkg
+```
+
+If you use a different tool to create your packages, please consult the tool’s manual or support reference whether they create component packages, distribution packages or product archives.
+- [munkipkg](https://github.com/munki/munki-pkg): will automatically create product archives when the `distribution_style` key is set to `true
+- [Whitebox Packages](http://s.sudre.free.fr/Software/Packages/about.html): identifier (id) and version can be set for a distribution package project when ‘Show Advanced User Options’ is enabled in Packages -> Preferences
+- [Jamf Composer](https://www.jamf.com/products/jamf-composer/): cannot create distribution packages or product archives. You can convert the component packages from Composer with the above `productbuild` command.
+- `pkgbuild` and most other tools: creates component packages which you can convert using the above `productbuild` command
 
 Source
 ===================================

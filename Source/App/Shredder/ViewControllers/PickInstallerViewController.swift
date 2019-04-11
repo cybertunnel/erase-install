@@ -63,7 +63,7 @@ class PickInstallerViewController: NSViewController {
 
         let duration = 0.6
         let timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeIn)
-        let leadingConstant: CGFloat = 477.0
+        let leadingConstant: CGFloat = ContinueButtonLeading.animationConstraintConstant.rawValue
 
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = duration

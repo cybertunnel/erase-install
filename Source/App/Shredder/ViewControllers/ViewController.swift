@@ -84,7 +84,7 @@ class ViewController: NSViewController {
         alert.informativeText = message
         alert.alertStyle = .critical
         alert.addButton(withTitle: NSLocalizedString("quitKey", comment: "Quit"))
-        alert.beginSheetModal(for: self.view.window!) { (response) in
+        alert.beginSheetModal(for: self.view.window!) { _ in
             NSApp.terminate(self)
         }
     }

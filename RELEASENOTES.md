@@ -1,5 +1,14 @@
 # Release Notes
 
+1.2
+===================================
+
+* customize the installation with packages
+* added a battery check
+* notarized application and installer, ready for 10.14.5
+* fixed layout issues for small screens
+* fixed localization bugs
+
 1.1.1
 ===================================
 

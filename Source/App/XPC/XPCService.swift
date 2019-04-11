@@ -44,13 +44,13 @@ class XPCServiceClient: NSObject {
 
     // MARK: - Public Functions
     func getVersionOfHelper() {
-        let xpcService = prepareConnection()?.remoteObjectProxyWithErrorHandler { error -> Void in
+        let xpcService = prepareConnection()?.remoteObjectProxyWithErrorHandler { _ -> Void in
         } as? HelperAppProtocol
         xpcService?.getHelperVersion()
     }
 
     func sendCommandToHelper(command: CommandToSend) {
-        let service = prepareConnection()?.remoteObjectProxyWithErrorHandler { error -> Void in
+        let service = prepareConnection()?.remoteObjectProxyWithErrorHandler { _ -> Void in
             } as? HelperAppProtocol
         service?.runCommand(path: command.launchPath, arguments: command.launchArguments)
     }
@@ -94,10 +94,9 @@ class XPCServiceClient: NSObject {
         }
 
         // Launch the privileged helper using SMJobBless tool
-        var error: Unmanaged<CFError>? = nil
+        var error: Unmanaged<CFError>?
 
-        if(SMJobBless(kSMDomainSystemLaunchd, HelperConstants.helperServiceName as CFString,
-                      authRef, &error) == false) {
+        if SMJobBless(kSMDomainSystemLaunchd, HelperConstants.helperServiceName as CFString, authRef, &error) == false {
             let blessError = error!.takeRetainedValue() as Error
             print(blessError.localizedDescription)
         } else {

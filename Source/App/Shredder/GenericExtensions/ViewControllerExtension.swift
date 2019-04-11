@@ -27,6 +27,11 @@
 import Foundation
 import AppKit
 
+enum ContinueButtonLeading: CGFloat {
+    case normalConstraintConstant = 436.0
+    case animationConstraintConstant = 300.0
+}
+
 extension NSViewController {
 
     /// Extension to NSViewController

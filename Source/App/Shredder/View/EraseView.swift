@@ -27,21 +27,15 @@
 import Cocoa
 
 class EraseView: NSBox {
-    private let progressTimerInterval: TimeInterval = 1.0
-    private let progressIncrement: Double = 1.0
-
-    @IBOutlet var eraseProgressIndicator: NSProgressIndicator!
     @IBOutlet var eraseMessage: NSTextField!
     @IBOutlet var selectedInstallerImage: NSImageView!
+    @IBOutlet var spinner: NSProgressIndicator!
 
     func displayEraseView(icon: NSImage, limit: Double) {
         self.isHidden = false
-        eraseMessage.stringValue = NSLocalizedString("runningEraseCommandMessageKey", comment: "Erase Message")
+        spinner.startAnimation(spinner)
+        let messageValue = NSLocalizedString("headerTitleEraseIsRunning", comment: "Preparing")
+        eraseMessage.stringValue = "\(messageValue)..."
         selectedInstallerImage.image = icon
-        eraseProgressIndicator.increment(by: progressIncrement)
-        eraseProgressIndicator.maxValue = limit
-        Timer.scheduledTimer(withTimeInterval: progressTimerInterval, repeats: true) { (timer) in
-            self.eraseProgressIndicator.increment(by: self.progressIncrement)
-        }
     }
 }

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		3742BD21216CE399008ACE50 /* BuildRelease */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3742BD24216CE399008ACE50 /* Build configuration list for PBXAggregateTarget "BuildRelease" */;
+			buildPhases = (
+				3742BD25216CE3A5008ACE50 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = BuildRelease;
+			productName = BuildRelease;
+		};
 		3742BD26216CE423008ACE50 /* BuildBlessDebug */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 3742BD28216CE423008ACE50 /* Build configuration list for PBXAggregateTarget "BuildBlessDebug" */;
@@ -26,6 +37,10 @@
 		374D29072174A7620077A52F /* LogContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D29062174A7620077A52F /* LogContent.swift */; };
 		374D290B2174ABF80077A52F /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D290A2174ABF80077A52F /* LogViewController.swift */; };
 		374FAF66214146B800174657 /* InstallerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374FAF65214146B800174657 /* InstallerApp.swift */; };
+		3752B9392177113A00B8AFEB /* EraseInstallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B9382177113A00B8AFEB /* EraseInstallTests.swift */; };
+		3752B9432177157C00B8AFEB /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B9422177157C00B8AFEB /* ViewControllerTests.swift */; };
+		3752B94B21771AEB00B8AFEB /* EraseInstallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B94A21771AEB00B8AFEB /* EraseInstallUITests.swift */; };
+		3752B9542177211D00B8AFEB /* ViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B9532177211D00B8AFEB /* ViewControllerUITests.swift */; };
 		3752B9582177793700B8AFEB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B9572177793700B8AFEB /* Enums.swift */; };
 		3759F8DF216353EA00BA6346 /* ValidationChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */; };
 		3759F8E121636E1700BA6346 /* EraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8E021636E1700BA6346 /* EraseView.swift */; };
@@ -50,7 +65,25 @@
 		37CC408321199AF400C22BB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC408121199AF400C22BB4 /* Main.storyboard */; };
 		37D5BAC2216CAA1B0032407D /* nl.prowarehouse.ShredderHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		37DD1808215A20A900FB220B /* PickInstallerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DD1807215A20A900FB220B /* PickInstallerViewController.swift */; };
+		37F0C6BA21E757EC00FDB75F /* ValidatePackage.sh in Resources */ = {isa = PBXBuildFile; fileRef = 37F0C6B921E757EC00FDB75F /* ValidatePackage.sh */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3752B93B2177113A00B8AFEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CC407021199AF200C22BB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CC407721199AF200C22BB4;
+			remoteInfo = Shredder;
+		};
+		3752B94D21771AEB00B8AFEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CC407021199AF200C22BB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CC407721199AF200C22BB4;
+			remoteInfo = Shredder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		373264482147A7120076278B /* CopyFiles */ = {
@@ -80,13 +113,16 @@
 		374D29062174A7620077A52F /* LogContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogContent.swift; sourceTree = "<group>"; };
 		374D290A2174ABF80077A52F /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		374FAF65214146B800174657 /* InstallerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerApp.swift; sourceTree = "<group>"; };
+		3752B9362177113A00B8AFEB /* EraseInstallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EraseInstallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3752B9382177113A00B8AFEB /* EraseInstallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseInstallTests.swift; sourceTree = "<group>"; };
 		3752B93A2177113A00B8AFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3752B9422177157C00B8AFEB /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		3752B94821771AEB00B8AFEB /* EraseInstallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EraseInstallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3752B94A21771AEB00B8AFEB /* EraseInstallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseInstallUITests.swift; sourceTree = "<group>"; };
 		3752B94C21771AEB00B8AFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3752B9532177211D00B8AFEB /* ViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUITests.swift; sourceTree = "<group>"; };
 		3752B9572177793700B8AFEB /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3759A761225F191B006712CE /* EraseInstall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EraseInstall.entitlements; sourceTree = "<group>"; };
 		3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationChecklistView.swift; sourceTree = "<group>"; };
 		3759F8E021636E1700BA6346 /* EraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseView.swift; sourceTree = "<group>"; };
 		378B6E462148CFB7007A3348 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -113,11 +149,25 @@
 		37CC407D21199AF200C22BB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37CC408221199AF400C22BB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37CC408421199AF400C22BB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37CC408521199AF400C22BB4 /* Shredder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shredder.entitlements; sourceTree = "<group>"; };
 		37DD1807215A20A900FB220B /* PickInstallerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickInstallerViewController.swift; sourceTree = "<group>"; };
+		37F0C6B921E757EC00FDB75F /* ValidatePackage.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ValidatePackage.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3752B9332177113A00B8AFEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3752B94521771AEB00B8AFEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37A6B50E211AC87500AC2EA2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,9 +199,10 @@
 			children = (
 				37B66CF02158F68F00EC866F /* Assets.xcassets */,
 				37CC408421199AF400C22BB4 /* Info.plist */,
-				37CC408521199AF400C22BB4 /* Shredder.entitlements */,
+				3759A761225F191B006712CE /* EraseInstall.entitlements */,
 				37B66CEC2158C0C500EC866F /* Localizable.strings */,
 				3752B9572177793700B8AFEB /* Enums.swift */,
+				37F0C6B921E757EC00FDB75F /* ValidatePackage.sh */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -282,6 +333,8 @@
 			children = (
 				37CC407821199AF200C22BB4 /* EraseInstall.app */,
 				37A6B511211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */,
+				3752B9362177113A00B8AFEB /* EraseInstallTests.xctest */,
+				3752B94821771AEB00B8AFEB /* EraseInstallUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,6 +357,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3752B9352177113A00B8AFEB /* EraseInstallTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3752B93F2177113A00B8AFEB /* Build configuration list for PBXNativeTarget "EraseInstallTests" */;
+			buildPhases = (
+				3752B9322177113A00B8AFEB /* Sources */,
+				3752B9332177113A00B8AFEB /* Frameworks */,
+				3752B9342177113A00B8AFEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3752B93C2177113A00B8AFEB /* PBXTargetDependency */,
+			);
+			name = EraseInstallTests;
+			productName = EraseInstallTests;
+			productReference = 3752B9362177113A00B8AFEB /* EraseInstallTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3752B94721771AEB00B8AFEB /* EraseInstallUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3752B94F21771AEB00B8AFEB /* Build configuration list for PBXNativeTarget "EraseInstallUITests" */;
+			buildPhases = (
+				3752B94421771AEB00B8AFEB /* Sources */,
+				3752B94521771AEB00B8AFEB /* Frameworks */,
+				3752B94621771AEB00B8AFEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3752B94E21771AEB00B8AFEB /* PBXTargetDependency */,
+			);
+			name = EraseInstallUITests;
+			productName = EraseInstallUITests;
+			productReference = 3752B94821771AEB00B8AFEB /* EraseInstallUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		37A6B510211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37A6B517211AC87500AC2EA2 /* Build configuration list for PBXNativeTarget "nl.prowarehouse.ShredderHelper" */;
@@ -349,18 +438,32 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Pro Warehouse";
 				TargetAttributes = {
+					3742BD21216CE399008ACE50 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					3752B9352177113A00B8AFEB = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
+						TestTargetID = 37CC407721199AF200C22BB4;
+					};
+					3752B94721771AEB00B8AFEB = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
+						TestTargetID = 37CC407721199AF200C22BB4;
+					};
 					37A6B510211AC87500AC2EA2 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 					37CC407721199AF200C22BB4 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -386,12 +489,29 @@
 			targets = (
 				37CC407721199AF200C22BB4 /* Shredder */,
 				37A6B510211AC87500AC2EA2 /* nl.prowarehouse.ShredderHelper */,
+				3742BD21216CE399008ACE50 /* BuildRelease */,
 				3742BD26216CE423008ACE50 /* BuildBlessDebug */,
+				3752B9352177113A00B8AFEB /* EraseInstallTests */,
+				3752B94721771AEB00B8AFEB /* EraseInstallUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3752B9342177113A00B8AFEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3752B94621771AEB00B8AFEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37CC407621199AF200C22BB4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -399,6 +519,7 @@
 				37B66CEA2158C0C500EC866F /* Localizable.strings in Resources */,
 				37B66CF12158F69000EC866F /* Assets.xcassets in Resources */,
 				37AD243A215A750400436AC9 /* PickInstallerItem.xib in Resources */,
+				37F0C6BA21E757EC00FDB75F /* ValidatePackage.sh in Resources */,
 				37CC408321199AF400C22BB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +564,23 @@
 			shellScript = "
 ";
 		};
+		3742BD25216CE3A5008ACE50 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "cd ../Pkg\n./BuildEraseInstallPackage.sh\n";
+		};
 		3742BD27216CE423008ACE50 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +619,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3752B9322177113A00B8AFEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3752B9432177157C00B8AFEB /* ViewControllerTests.swift in Sources */,
+				3752B9392177113A00B8AFEB /* EraseInstallTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3752B94421771AEB00B8AFEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3752B9542177211D00B8AFEB /* ViewControllerUITests.swift in Sources */,
+				3752B94B21771AEB00B8AFEB /* EraseInstallUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37A6B50D211AC87500AC2EA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,6 +676,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3752B93C2177113A00B8AFEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CC407721199AF200C22BB4 /* Shredder */;
+			targetProxy = 3752B93B2177113A00B8AFEB /* PBXContainerItemProxy */;
+		};
+		3752B94E21771AEB00B8AFEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CC407721199AF200C22BB4 /* Shredder */;
+			targetProxy = 3752B94D21771AEB00B8AFEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		37B66CEC2158C0C500EC866F /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -541,6 +710,24 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3742BD22216CE399008ACE50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3742BD23216CE399008ACE50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3742BD29216CE423008ACE50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -556,6 +743,94 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3752B93D2177113A00B8AFEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = EraseInstallTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.EraseInstallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EraseInstall.app/Contents/MacOS/EraseInstall";
+			};
+			name = Debug;
+		};
+		3752B93E2177113A00B8AFEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = EraseInstallTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.EraseInstallTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EraseInstall.app/Contents/MacOS/EraseInstall";
+			};
+			name = Release;
+		};
+		3752B95021771AEB00B8AFEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = EraseInstallUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.EraseInstallUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Shredder;
+			};
+			name = Debug;
+		};
+		3752B95121771AEB00B8AFEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
+				INFOPLIST_FILE = EraseInstallUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.EraseInstallUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Shredder;
 			};
 			name = Release;
 		};
@@ -580,7 +855,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.ShredderHelper;
 				PRODUCT_NAME = nl.prowarehouse.ShredderHelper;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -605,7 +880,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.ShredderHelper;
 				PRODUCT_NAME = nl.prowarehouse.ShredderHelper;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -645,8 +920,11 @@
 				CODESIGN_APP = "identifier \"nl.prowarehouse.ShredderHelper\" and anchor apple generic and certificate leaf[subject.CN] = \"Mac Developer: Arnold Nefkens (584M2M88H2)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */";
 				CODESIGN_HELPER = "identifier \"nl.prowarehouse.Shredder\" and anchor apple generic and certificate leaf[subject.CN] = \"Mac Developer: Arnold Nefkens (584M2M88H2)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */";
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = R55HK5K86Y;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -707,9 +985,12 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODESIGN_APP = "anchor apple generic and identifier \"nl.prowarehouse.ShredderHelper\" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R55HK5K86Y)";
 				CODESIGN_HELPER = "anchor apple generic and identifier \"nl.prowarehouse.Shredder\" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R55HK5K86Y)";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = R55HK5K86Y;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -736,6 +1017,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shredder/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -745,7 +1027,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.Shredder;
 				PRODUCT_NAME = EraseInstall;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -757,6 +1039,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Shredder/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -766,18 +1049,45 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nl.prowarehouse.Shredder;
 				PRODUCT_NAME = EraseInstall;
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3742BD24216CE399008ACE50 /* Build configuration list for PBXAggregateTarget "BuildRelease" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3742BD22216CE399008ACE50 /* Debug */,
+				3742BD23216CE399008ACE50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3742BD28216CE423008ACE50 /* Build configuration list for PBXAggregateTarget "BuildBlessDebug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3742BD29216CE423008ACE50 /* Debug */,
 				3742BD2A216CE423008ACE50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3752B93F2177113A00B8AFEB /* Build configuration list for PBXNativeTarget "EraseInstallTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3752B93D2177113A00B8AFEB /* Debug */,
+				3752B93E2177113A00B8AFEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3752B94F21771AEB00B8AFEB /* Build configuration list for PBXNativeTarget "EraseInstallUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3752B95021771AEB00B8AFEB /* Debug */,
+				3752B95121771AEB00B8AFEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
