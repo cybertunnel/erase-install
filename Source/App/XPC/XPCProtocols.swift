@@ -39,7 +39,9 @@ protocol HelperAppProtocol {
     /// - Parameters:
     ///   - path: The full path when the executable can be found on the system
     ///   - arguments: Optional array of arguments to send along with the executable.
-    func runCommand(path: String, arguments: [String]?)
+    ///   - usePTY: Bool value to indicate if you want to use the PseudoTermninal to execute the command with.
+    ///             (startosinstall uses the pty to display the output.)
+    func runCommand(path: String, arguments: [String]?, usePTY: Bool)
 }
 
 /// Protocol to enable callbacks to the Main App. The protocol performs as a proxy of the main app in the helper app.
@@ -58,8 +60,9 @@ protocol MainAppProtocol {
 
     /// Callback to inform log entry is received.
     ///
-    /// - Parameter value: String value of log entry
-    func didReceiveLog(value: String)
+    /// - Parameter value: String value of log entry,.
+    /// - Parameter forUI: Bool val;ue to indicate if we want the value to be displayed in a UI Component..
+    func didReceiveLog(value: String, forUI: Bool)
 
     /// Callback to inform error output is receieved.
     ///

@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 15/10/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,6 +29,8 @@ import Foundation
 
 let logEntryChangedNotificationName = "logEntryChangedNotificationName"
 let logEntryKey = "logEntryKey"
+let displayMessageInUINotificationName = "displayMessageInUINotificationName"
+
 struct LogContent {
     static var current = LogContent()
     private init() {}
@@ -46,7 +48,13 @@ struct LogContent {
 }
 
 protocol Logging {
+    /// Method to add message to log store
+    /// - Parameter message: String
     func log(message: String)
+
+    /// Method to send message to be displayed in UI, other then log window.
+    /// - Parameter content: String
+    func displayMessageInUI(content: String)
 }
 
 extension Logging {
@@ -56,5 +64,11 @@ extension Logging {
         let dateValue = dateFormatter.string(from: Date())
         let messageToLog = "\(dateValue): \(message)\n"
         LogContent.current.log(message: messageToLog)
+    }
+
+    func displayMessageInUI(content: String) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: displayMessageInUINotificationName),
+                                        object: nil,
+                                        userInfo: [logEntryKey: content])
     }
 }

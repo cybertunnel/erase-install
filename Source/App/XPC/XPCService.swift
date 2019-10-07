@@ -32,6 +32,7 @@ import XPC
 struct CommandToSend {
     let launchPath: String
     let launchArguments: [String]
+    let usePTY: Bool
 }
 
 class XPCServiceClient: NSObject {
@@ -44,15 +45,15 @@ class XPCServiceClient: NSObject {
 
     // MARK: - Public Functions
     func getVersionOfHelper() {
-        let xpcService = prepareConnection()?.remoteObjectProxyWithErrorHandler { error -> Void in
+        let xpcService = prepareConnection()?.remoteObjectProxyWithErrorHandler { _ -> Void in
         } as? HelperAppProtocol
         xpcService?.getHelperVersion()
     }
 
     func sendCommandToHelper(command: CommandToSend) {
-        let service = prepareConnection()?.remoteObjectProxyWithErrorHandler { error -> Void in
+        let service = prepareConnection()?.remoteObjectProxyWithErrorHandler { _ -> Void in
             } as? HelperAppProtocol
-        service?.runCommand(path: command.launchPath, arguments: command.launchArguments)
+        service?.runCommand(path: command.launchPath, arguments: command.launchArguments, usePTY: command.usePTY)
     }
 
     /// Check if Helper daemon exists
@@ -94,10 +95,9 @@ class XPCServiceClient: NSObject {
         }
 
         // Launch the privileged helper using SMJobBless tool
-        var error: Unmanaged<CFError>? = nil
+        var error: Unmanaged<CFError>?
 
-        if(SMJobBless(kSMDomainSystemLaunchd, HelperConstants.helperServiceName as CFString,
-                      authRef, &error) == false) {
+        if SMJobBless(kSMDomainSystemLaunchd, HelperConstants.helperServiceName as CFString, authRef, &error) == false {
             let blessError = error!.takeRetainedValue() as Error
             print(blessError.localizedDescription)
         } else {
@@ -147,32 +147,40 @@ class XPCServiceClient: NSObject {
 
 extension XPCServiceClient: MainAppProtocol, Logging {
     func didReceiveErrorOutput(value: String) {
-        OperationQueue.main.addOperation {
-            self.log(message: value)
+        DispatchQueue.main.async {  [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.log(message: value)
         }
     }
 
     func didTerminateHelper(normal: Bool) {
-        OperationQueue.main.addOperation {
-            self.clientDelegate?.taskIsTerminated(normal: normal)
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.clientDelegate?.taskIsTerminated(normal: normal)
         }
     }
 
-    func didReceiveLog(value: String) {
-        OperationQueue.main.addOperation {
-            self.log(message: value)
+    func didReceiveLog(value: String, forUI: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.log(message: value)
+            if forUI {
+                weakSelf.displayMessageInUI(content: value)
+            }
         }
     }
 
     func didStartWithCommand(command: String) {
-        OperationQueue.main.addOperation {
-            self.log(message: command)
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.log(message: command)
         }
     }
 
     func didReceiveVersionOfHelper(version: String) {
-        OperationQueue.main.addOperation {
-            self.clientDelegate?.didReceiveVersion(value: version)
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.clientDelegate?.didReceiveVersion(value: version)
         }
     }
 }

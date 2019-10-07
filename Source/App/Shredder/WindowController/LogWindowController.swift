@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 15/10/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,11 @@
 import Cocoa
 import Foundation
 
+enum MenuItemTag: Int {
+    case viewMenu = 1000
+    case hideLoggingMenu = 1001
+}
+
 class LogWindowController: NSWindowController {
 
     override func windowDidLoad() {
@@ -35,6 +40,15 @@ class LogWindowController: NSWindowController {
         if let logWindow = self.window {
             logWindow.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.maximumWindow) + 1 ))
         }
+
+        let viewMenu = NSApp.mainMenu?.item(withTag: MenuItemTag.viewMenu.rawValue)
+        let closeLoggingMenuItem = viewMenu?.submenu?.item(withTag: MenuItemTag.hideLoggingMenu.rawValue)
+        closeLoggingMenuItem?.target = self
+        closeLoggingMenuItem?.action = #selector(closeWindow)
+    }
+
+    @objc func closeWindow() {
+        self.window?.close()
     }
 
 }

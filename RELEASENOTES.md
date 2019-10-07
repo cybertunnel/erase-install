@@ -1,5 +1,12 @@
 # Release Notes
 
+1.2.1
+===================================
+
+* added correct output of 'startosinstall' command to log.
+* When 'startosinstall' output starts with "Preparing" it now also displays in the Main UI
+* Replaced progress bar with progress spinner.
+
 1.1.0
 ===================================
 
@@ -17,7 +24,7 @@
 
 License
 ===================================
-Copyright ©2018 Pro Warehouse.
+Copyright ©2019 Pro Warehouse.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

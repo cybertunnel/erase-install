@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 07/08/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -84,7 +84,7 @@ class ViewController: NSViewController {
         alert.informativeText = message
         alert.alertStyle = .critical
         alert.addButton(withTitle: NSLocalizedString("quitKey", comment: "Quit"))
-        alert.beginSheetModal(for: self.view.window!) { (response) in
+        alert.beginSheetModal(for: self.view.window!) { _ in
             NSApp.terminate(self)
         }
     }

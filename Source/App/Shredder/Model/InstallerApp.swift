@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 06/09/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -43,7 +43,16 @@ struct InstallerApp {
     }
 
     var canErase: Bool {
-        return (self.version > "13.4")
+        let osVersion = ProcessInfo.processInfo.operatingSystemVersion
+        let osVersionValue = "\(osVersion.minorVersion).\(osVersion.patchVersion)"
+        if osVersion.minorVersion >= 14
+            && ( osVersion.minorVersion == 14 && osVersion.patchVersion >= 2 )
+            && ( self.version < osVersionValue ) {
+            return false
+        }
+
+        let value = (self.version > "13.4")
+        return value
     }
 
     var displayName: String {

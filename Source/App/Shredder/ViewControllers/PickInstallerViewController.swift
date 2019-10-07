@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 25/09/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -63,7 +63,7 @@ class PickInstallerViewController: NSViewController {
 
         let duration = 0.6
         let timingFunction = CAMediaTimingFunction.init(name: CAMediaTimingFunctionName.easeIn)
-        let leadingConstant: CGFloat = 477.0
+        let leadingConstant: CGFloat = ContinueButtonLeading.animationConstraintConstant.rawValue
 
         NSAnimationContext.runAnimationGroup({ context in
             context.duration = duration

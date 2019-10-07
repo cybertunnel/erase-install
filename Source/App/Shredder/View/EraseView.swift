@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 02/10/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,23 +25,30 @@
 //
 
 import Cocoa
+import Foundation
 
 class EraseView: NSBox {
-    private let progressTimerInterval: TimeInterval = 1.0
-    private let progressIncrement: Double = 1.0
-
-    @IBOutlet var eraseProgressIndicator: NSProgressIndicator!
     @IBOutlet var eraseMessage: NSTextField!
     @IBOutlet var selectedInstallerImage: NSImageView!
+    @IBOutlet var spinner: NSProgressIndicator!
 
     func displayEraseView(icon: NSImage, limit: Double) {
         self.isHidden = false
-        eraseMessage.stringValue = NSLocalizedString("runningEraseCommandMessageKey", comment: "Erase Message")
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayMessage(notification:)),
+                                               name: NSNotification.Name(rawValue: displayMessageInUINotificationName),
+                                               object: nil)
+
+        spinner.startAnimation(spinner)
+        let messageValue = NSLocalizedString("headerTitleEraseIsRunning", comment: "Preparing")
+        eraseMessage.stringValue = "\(messageValue)..."
         selectedInstallerImage.image = icon
-        eraseProgressIndicator.increment(by: progressIncrement)
-        eraseProgressIndicator.maxValue = limit
-        Timer.scheduledTimer(withTimeInterval: progressTimerInterval, repeats: true) { (timer) in
-            self.eraseProgressIndicator.increment(by: self.progressIncrement)
+    }
+
+    @objc func displayMessage(notification: Notification) {
+        if let userInfo = notification.userInfo, let message = userInfo[logEntryKey] as? String {
+            eraseMessage.stringValue = message
         }
     }
 }
