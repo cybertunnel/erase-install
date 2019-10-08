@@ -7,6 +7,20 @@
 * When 'startosinstall' output starts with "Preparing" it now also displays in the Main UI
 * Replaced progress bar with progress spinner.
 
+1.2
+===================================
+
+* customize the installation with packages
+* added a battery check
+* notarized application and installer, ready for 10.14.5
+* fixed layout issues for small screens
+* fixed localization bugs
+
+1.1.1
+===================================
+
+* Fixed issue with title (NL)
+
 1.1.0
 ===================================
 
