@@ -53,11 +53,14 @@ class ProcessPTYHelper: NSObject {
                 pseudoTerminal.masterFileHandle.readabilityHandler = nil
                 weakSelf.exitPTY(inError: true)
             }
-            guard let valueToPrint = String(data: dataFromOutput, encoding: .utf8) else {
+            guard let valueReceived = String(data: dataFromOutput, encoding: .utf8) else {
                 weakDelegate.didReceiveLogEntry(value: "Error: No Data that is UTF 8 String", forUI: false)
                 weakSelf.exitPTY(inError: false)
                 return
             }
+
+            // We need to trim the valueReceived of any whitespace, this is changed in MacOS Catalina.
+            let valueToPrint = valueReceived.replacingOccurrences(of: "^\\s*", with: "", options: .regularExpression)
 
             var needToDisplayInUI: Bool = false
             if valueToPrint.starts(with: "Prepa") {

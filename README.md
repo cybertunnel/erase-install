@@ -25,7 +25,7 @@ Requirements
 Installation
 ===================================
 
-1. Download the installer pkg. ( [Click here](./InstallPackage/EraseInstall-1.2.1_885.pkg) )
+1. Download the installer pkg. ( [Click here](./InstallPackage/EraseInstall-1.2.1_897.pkg) )
 2. Install the EraseInstall app using the installer. 
 
 Prerequisites
