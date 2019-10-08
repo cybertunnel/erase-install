@@ -5,3 +5,4 @@ included:
 
 excluded:
 - Frameworks
+- ShredderHelper/PseudoTerminal
