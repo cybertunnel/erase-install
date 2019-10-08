@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -149,7 +149,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="KgG-0S-b65">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="KgG-0S-b65">
                                     <rect key="frame" x="-100" y="-100" width="465" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -565,7 +565,7 @@
                                     <outlet property="searchProgressLabel" destination="WQ1-mc-VTZ" id="EO1-CS-lmM"/>
                                 </connections>
                             </box>
-                            <box hidden="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Rw5-u1-Xmv" customClass="EraseView" customModule="EraseInstall" customModuleProvider="target">
+                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Rw5-u1-Xmv" customClass="EraseView" customModule="EraseInstall" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="800" height="425"/>
                                 <view key="contentView" id="gdU-bs-vuA">
                                     <rect key="frame" x="1" y="1" width="798" height="423"/>
@@ -580,15 +580,15 @@
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="BpA-7D-75g"/>
                                         </imageView>
                                         <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="dq1-dY-KkL">
-                                            <rect key="frame" x="343" y="8" width="16" height="16"/>
+                                            <rect key="frame" x="390" y="60" width="16" height="16"/>
                                         </progressIndicator>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iN4-3P-fGP">
-                                            <rect key="frame" x="377" y="7" width="353" height="17"/>
+                                            <rect key="frame" x="223" y="21" width="353" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="349" id="5O7-dn-0qR"/>
                                                 <constraint firstAttribute="height" constant="17" id="obR-eN-wxE"/>
                                             </constraints>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Label" id="DAj-wp-y8z">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="DAj-wp-y8z">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -596,12 +596,13 @@
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="iN4-3P-fGP" firstAttribute="leading" secondItem="dq1-dY-KkL" secondAttribute="trailing" constant="20" id="9uF-r7-Upj"/>
-                                        <constraint firstAttribute="bottom" secondItem="iN4-3P-fGP" secondAttribute="bottom" constant="7" id="Fgf-jh-lNw"/>
-                                        <constraint firstItem="iN4-3P-fGP" firstAttribute="centerY" secondItem="dq1-dY-KkL" secondAttribute="centerY" id="HsE-OR-l4G"/>
+                                        <constraint firstItem="iN4-3P-fGP" firstAttribute="centerX" secondItem="gdU-bs-vuA" secondAttribute="centerX" id="BdJ-YX-JwH"/>
                                         <constraint firstItem="KzB-eX-vgc" firstAttribute="top" secondItem="gdU-bs-vuA" secondAttribute="top" constant="20" id="Qpb-8X-9Z3"/>
-                                        <constraint firstItem="iN4-3P-fGP" firstAttribute="centerX" secondItem="gdU-bs-vuA" secondAttribute="centerX" constant="154.5" id="aGc-2E-qqL"/>
+                                        <constraint firstItem="dq1-dY-KkL" firstAttribute="centerY" secondItem="gdU-bs-vuA" secondAttribute="centerY" constant="143.5" id="Svh-rP-8Bl"/>
+                                        <constraint firstItem="dq1-dY-KkL" firstAttribute="centerX" secondItem="gdU-bs-vuA" secondAttribute="centerX" constant="-1" id="mtC-qp-5Ix"/>
                                         <constraint firstItem="KzB-eX-vgc" firstAttribute="centerX" secondItem="gdU-bs-vuA" secondAttribute="centerX" id="ol5-HS-8Ro"/>
+                                        <constraint firstItem="dq1-dY-KkL" firstAttribute="centerX" secondItem="gdU-bs-vuA" secondAttribute="centerX" constant="-1" id="q4X-e1-a3k"/>
+                                        <constraint firstItem="iN4-3P-fGP" firstAttribute="centerY" secondItem="gdU-bs-vuA" secondAttribute="centerY" constant="182" id="yd9-FO-OQb"/>
                                     </constraints>
                                 </view>
                                 <color key="borderColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -653,6 +654,7 @@
                             <constraint firstItem="Rw5-u1-Xmv" firstAttribute="centerY" secondItem="7ic-9p-EZa" secondAttribute="centerY" constant="23.5" id="TB9-ef-SJJ"/>
                             <constraint firstItem="FJP-ne-56f" firstAttribute="leading" secondItem="7ic-9p-EZa" secondAttribute="leading" constant="266" id="TTY-fL-57Y"/>
                             <constraint firstAttribute="trailing" secondItem="LJM-ih-Cm0" secondAttribute="trailing" constant="294" id="VCI-GV-sFY"/>
+                            <constraint firstItem="LJM-ih-Cm0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FJP-ne-56f" secondAttribute="trailing" constant="8" symbolic="YES" id="Wgs-Qi-DGP"/>
                             <constraint firstItem="Rw5-u1-Xmv" firstAttribute="leading" secondItem="7ic-9p-EZa" secondAttribute="leading" id="YeN-o6-Qcq"/>
                             <constraint firstAttribute="bottom" secondItem="LJM-ih-Cm0" secondAttribute="bottom" constant="4" id="eRO-J1-Bjw"/>
                             <constraint firstItem="Rw5-u1-Xmv" firstAttribute="top" secondItem="Eus-73-TVh" secondAttribute="bottom" constant="3" id="fMf-4I-hvZ"/>

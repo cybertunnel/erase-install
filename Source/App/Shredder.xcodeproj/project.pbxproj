@@ -14,6 +14,7 @@
 				3742BD25216CE3A5008ACE50 /* ShellScript */,
 			);
 			dependencies = (
+				37BDD7472317C27D00F4FA37 /* PBXTargetDependency */,
 			);
 			name = BuildRelease;
 			productName = BuildRelease;
@@ -25,6 +26,7 @@
 				3742BD27216CE423008ACE50 /* ShellScript */,
 			);
 			dependencies = (
+				37BDD74B2317C60900F4FA37 /* PBXTargetDependency */,
 			);
 			name = BuildBlessDebug;
 			productName = BuildRelease;
@@ -44,7 +46,6 @@
 		3752B9582177793700B8AFEB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3752B9572177793700B8AFEB /* Enums.swift */; };
 		3759F8DF216353EA00BA6346 /* ValidationChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */; };
 		3759F8E121636E1700BA6346 /* EraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759F8E021636E1700BA6346 /* EraseView.swift */; };
-		378B6E472148CFB7007A3348 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378B6E462148CFB7007A3348 /* NotificationCenter.framework */; };
 		3791FD1B2164946000B3289C /* SearchInstallers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791FD1A2164946000B3289C /* SearchInstallers.swift */; };
 		3791FD1E2164959E00B3289C /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3791FD1D2164959E00B3289C /* ValidationHelper.swift */; };
 		37A6B514211AC87500AC2EA2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A6B513211AC87500AC2EA2 /* main.swift */; };
@@ -60,6 +61,11 @@
 		37AD243A215A750400436AC9 /* PickInstallerItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37AD2439215A750400436AC9 /* PickInstallerItem.xib */; };
 		37B66CEA2158C0C500EC866F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B66CEC2158C0C500EC866F /* Localizable.strings */; };
 		37B66CF12158F69000EC866F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B66CF02158F68F00EC866F /* Assets.xcassets */; };
+		37BDD7332317B0F700F4FA37 /* PseudoTeletypewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BDD7182317B0F700F4FA37 /* PseudoTeletypewriter.swift */; };
+		37BDD73D2317B28A00F4FA37 /* libEonilBSD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BDD7312317B0F700F4FA37 /* libEonilBSD.a */; };
+		37BDD73F2317B6A800F4FA37 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 37BDD73E2317B6A700F4FA37 /* .swiftlint.yml */; };
+		37BDD7432317BAB400F4FA37 /* ProcessHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BDD7412317B99D00F4FA37 /* ProcessHelperProtocol.swift */; };
+		37BDD7452317BB2300F4FA37 /* ProcessPTY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BDD7442317BB2300F4FA37 /* ProcessPTY.swift */; };
 		37CC407C21199AF200C22BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC407B21199AF200C22BB4 /* AppDelegate.swift */; };
 		37CC407E21199AF200C22BB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC407D21199AF200C22BB4 /* ViewController.swift */; };
 		37CC408321199AF400C22BB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC408121199AF400C22BB4 /* Main.storyboard */; };
@@ -82,6 +88,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 37CC407721199AF200C22BB4;
 			remoteInfo = Shredder;
+		};
+		37BDD72E2317B0F700F4FA37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 453686C01A63E962000754F3;
+			remoteInfo = Test1;
+		};
+		37BDD7302317B0F700F4FA37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4571101C216AF7E000C30777;
+			remoteInfo = EonilBSD;
+		};
+		37BDD73B2317B27700F4FA37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4571101B216AF7E000C30777;
+			remoteInfo = EonilBSD;
+		};
+		37BDD7462317C27D00F4FA37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4571101B216AF7E000C30777;
+			remoteInfo = EonilBSD;
+		};
+		37BDD74A2317C60900F4FA37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4571101B216AF7E000C30777;
+			remoteInfo = EonilBSD;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -126,6 +167,8 @@
 		3759F8DE216353EA00BA6346 /* ValidationChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationChecklistView.swift; sourceTree = "<group>"; };
 		3759F8E021636E1700BA6346 /* EraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EraseView.swift; sourceTree = "<group>"; };
 		378B6E462148CFB7007A3348 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		3790DDC82330BDE5003F1F35 /* BuildEraseInstallPackage.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = BuildEraseInstallPackage.sh; path = ../Pkg/BuildEraseInstallPackage.sh; sourceTree = "<group>"; };
+		3790DDC92330FCE9003F1F35 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3791FD1A2164946000B3289C /* SearchInstallers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInstallers.swift; sourceTree = "<group>"; };
 		3791FD1D2164959E00B3289C /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		379A39F4216618BA007BA806 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -144,6 +187,24 @@
 		37AD2439215A750400436AC9 /* PickInstallerItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickInstallerItem.xib; sourceTree = "<group>"; };
 		37B66CEB2158C0C500EC866F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37B66CF02158F68F00EC866F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37BDD7152317B0F700F4FA37 /* EonilPTY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EonilPTY.m; sourceTree = "<group>"; };
+		37BDD7162317B0F700F4FA37 /* EonilPTY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EonilPTY.h; sourceTree = "<group>"; };
+		37BDD7182317B0F700F4FA37 /* PseudoTeletypewriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PseudoTeletypewriter.swift; sourceTree = "<group>"; };
+		37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = EonilBSD.xcodeproj; sourceTree = "<group>"; };
+		37BDD71D2317B0F700F4FA37 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		37BDD7212317B0F700F4FA37 /* EonilBSD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EonilBSD.m; sourceTree = "<group>"; };
+		37BDD7222317B0F700F4FA37 /* EonilBSD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EonilBSD.h; sourceTree = "<group>"; };
+		37BDD7242317B0F700F4FA37 /* BSD_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSD_C.m; sourceTree = "<group>"; };
+		37BDD7252317B0F700F4FA37 /* BSD-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BSD-Bridging-Header.h"; sourceTree = "<group>"; };
+		37BDD7262317B0F700F4FA37 /* BSD_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSD_C.h; sourceTree = "<group>"; };
+		37BDD7272317B0F700F4FA37 /* BSD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSD.swift; sourceTree = "<group>"; };
+		37BDD7292317B0F700F4FA37 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		37BDD72A2317B0F700F4FA37 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		37BDD72B2317B0F700F4FA37 /* Data.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.extension.swift; sourceTree = "<group>"; };
+		37BDD73E2317B6A700F4FA37 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		37BDD7412317B99D00F4FA37 /* ProcessHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessHelperProtocol.swift; sourceTree = "<group>"; };
+		37BDD7442317BB2300F4FA37 /* ProcessPTY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessPTY.swift; sourceTree = "<group>"; };
+		37BDD74C2317E8E500F4FA37 /* NSXPCConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSXPCConnection.h; sourceTree = "<group>"; };
 		37CC407821199AF200C22BB4 /* EraseInstall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EraseInstall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC407B21199AF200C22BB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC407D21199AF200C22BB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378B6E472148CFB7007A3348 /* NotificationCenter.framework in Frameworks */,
+				37BDD73D2317B28A00F4FA37 /* libEonilBSD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +348,15 @@
 		37A6B512211AC87500AC2EA2 /* ShredderHelper */ = {
 			isa = PBXGroup;
 			children = (
+				37BDD7402317B97A00F4FA37 /* Protocol */,
+				37BDD7132317B0F700F4FA37 /* PseudoTerminal */,
 				37A6B51A211ACAFC00AC2EA2 /* ShredderHelper-Launchd.plist */,
 				37A6B519211ACADF00AC2EA2 /* ShredderHelper-Info.plist */,
 				37A6B513211AC87500AC2EA2 /* main.swift */,
 				37A6B521211AF03100AC2EA2 /* Helper.swift */,
 				37A6B523211AF25500AC2EA2 /* Process.swift */,
+				37BDD7442317BB2300F4FA37 /* ProcessPTY.swift */,
+				37BDD74C2317E8E500F4FA37 /* NSXPCConnection.h */,
 			);
 			path = ShredderHelper;
 			sourceTree = "<group>";
@@ -315,9 +380,90 @@
 			path = WindowController;
 			sourceTree = "<group>";
 		};
+		37BDD7132317B0F700F4FA37 /* PseudoTerminal */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD7142317B0F700F4FA37 /* EonilPTY */,
+				37BDD7172317B0F700F4FA37 /* PseudoTeletypewriter */,
+				37BDD7192317B0F700F4FA37 /* BSD */,
+			);
+			path = PseudoTerminal;
+			sourceTree = "<group>";
+		};
+		37BDD7142317B0F700F4FA37 /* EonilPTY */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD7162317B0F700F4FA37 /* EonilPTY.h */,
+				37BDD7152317B0F700F4FA37 /* EonilPTY.m */,
+			);
+			path = EonilPTY;
+			sourceTree = "<group>";
+		};
+		37BDD7172317B0F700F4FA37 /* PseudoTeletypewriter */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD72B2317B0F700F4FA37 /* Data.extension.swift */,
+				37BDD7182317B0F700F4FA37 /* PseudoTeletypewriter.swift */,
+			);
+			path = PseudoTeletypewriter;
+			sourceTree = "<group>";
+		};
+		37BDD7192317B0F700F4FA37 /* BSD */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */,
+				37BDD71D2317B0F700F4FA37 /* LICENSE.md */,
+				37BDD7202317B0F700F4FA37 /* EonilBSD */,
+				37BDD7232317B0F700F4FA37 /* BSD */,
+				37BDD72A2317B0F700F4FA37 /* README.md */,
+			);
+			path = BSD;
+			sourceTree = "<group>";
+		};
+		37BDD71B2317B0F700F4FA37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD72F2317B0F700F4FA37 /* Test1 */,
+				37BDD7312317B0F700F4FA37 /* libEonilBSD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37BDD7202317B0F700F4FA37 /* EonilBSD */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD7212317B0F700F4FA37 /* EonilBSD.m */,
+				37BDD7222317B0F700F4FA37 /* EonilBSD.h */,
+			);
+			path = EonilBSD;
+			sourceTree = "<group>";
+		};
+		37BDD7232317B0F700F4FA37 /* BSD */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD7242317B0F700F4FA37 /* BSD_C.m */,
+				37BDD7252317B0F700F4FA37 /* BSD-Bridging-Header.h */,
+				37BDD7262317B0F700F4FA37 /* BSD_C.h */,
+				37BDD7272317B0F700F4FA37 /* BSD.swift */,
+				37BDD7292317B0F700F4FA37 /* Utility.swift */,
+			);
+			path = BSD;
+			sourceTree = "<group>";
+		};
+		37BDD7402317B97A00F4FA37 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				37BDD7412317B99D00F4FA37 /* ProcessHelperProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		37CC406F21199AF200C22BB4 = {
 			isa = PBXGroup;
 			children = (
+				3790DDC92330FCE9003F1F35 /* README.md */,
+				3790DDC82330BDE5003F1F35 /* BuildEraseInstallPackage.sh */,
+				37BDD73E2317B6A700F4FA37 /* .swiftlint.yml */,
 				37A6B51B211AD9F600AC2EA2 /* XPC */,
 				37CC407A21199AF200C22BB4 /* Shredder */,
 				37A6B512211AC87500AC2EA2 /* ShredderHelper */,
@@ -404,6 +550,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				37BDD73C2317B27700F4FA37 /* PBXTargetDependency */,
 			);
 			name = nl.prowarehouse.ShredderHelper;
 			productName = ShredderHelper;
@@ -438,7 +585,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Pro Warehouse";
 				TargetAttributes = {
 					3742BD21216CE399008ACE50 = {
@@ -463,7 +610,7 @@
 						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -485,6 +632,12 @@
 			mainGroup = 37CC406F21199AF200C22BB4;
 			productRefGroup = 37CC407921199AF200C22BB4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 37BDD71B2317B0F700F4FA37 /* Products */;
+					ProjectRef = 37BDD71A2317B0F700F4FA37 /* EonilBSD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				37CC407721199AF200C22BB4 /* Shredder */,
@@ -496,6 +649,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		37BDD72F2317B0F700F4FA37 /* Test1 */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Test1;
+			remoteRef = 37BDD72E2317B0F700F4FA37 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37BDD7312317B0F700F4FA37 /* libEonilBSD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libEonilBSD.a;
+			remoteRef = 37BDD7302317B0F700F4FA37 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3752B9342177113A00B8AFEB /* Resources */ = {
@@ -516,6 +686,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37BDD73F2317B6A800F4FA37 /* .swiftlint.yml in Resources */,
 				37B66CEA2158C0C500EC866F /* Localizable.strings in Resources */,
 				37B66CF12158F69000EC866F /* Assets.xcassets in Resources */,
 				37AD243A215A750400436AC9 /* PickInstallerItem.xib in Resources */,
@@ -596,7 +767,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "mkdir -p build\n# Build Release using xcodebuild\nxcodebuild clean build -project Shredder.xcodeproj -scheme Shredder -configuration \"Debug\" -sdk \"macosx10.14\" -derivedDataPath \"build\"\n# use bless tool with the build release application\n../Util/SMJobBlessUtil.py setreq \"build/Build/Products/Debug/EraseInstall.app\" \"Shredder/Resources/Info.plist\" \"ShredderHelper/ShredderHelper-Info.plist\"\n";
+			shellScript = "mkdir -p build\n# Build Release using xcodebuild\n/usr/bin/xcodebuild clean build -project Shredder.xcodeproj -scheme Shredder -destination platform=macOS  -configuration \"Debug\" -sdk \"macosx10.15\" -derivedDataPath \"build\"\n# use bless tool with the build release application\n../Util/SMJobBlessUtil.py setreq \"build/Build/Products/Debug/EraseInstall.app\" \"Shredder/Resources/Info.plist\" \"ShredderHelper/ShredderHelper-Info.plist\"\n\n# Build Release using xcodebuild\n/usr/bin/xcodebuild clean build -project Shredder.xcodeproj -scheme Shredder -destination platform=macOS  -configuration \"Debug\" -sdk \"macosx10.15\" -derivedDataPath \"build\"\n";
 		};
 		375F480221654196009FEC63 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -644,7 +815,10 @@
 				37A6B514211AC87500AC2EA2 /* main.swift in Sources */,
 				37A6B51E211ADA1500AC2EA2 /* XPCProtocols.swift in Sources */,
 				37A6B522211AF03100AC2EA2 /* Helper.swift in Sources */,
+				37BDD7332317B0F700F4FA37 /* PseudoTeletypewriter.swift in Sources */,
 				37A6B524211AF25500AC2EA2 /* Process.swift in Sources */,
+				37BDD7432317BAB400F4FA37 /* ProcessHelperProtocol.swift in Sources */,
+				37BDD7452317BB2300F4FA37 /* ProcessPTY.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +860,21 @@
 			isa = PBXTargetDependency;
 			target = 37CC407721199AF200C22BB4 /* Shredder */;
 			targetProxy = 3752B94D21771AEB00B8AFEB /* PBXContainerItemProxy */;
+		};
+		37BDD73C2317B27700F4FA37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EonilBSD;
+			targetProxy = 37BDD73B2317B27700F4FA37 /* PBXContainerItemProxy */;
+		};
+		37BDD7472317C27D00F4FA37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EonilBSD;
+			targetProxy = 37BDD7462317C27D00F4FA37 /* PBXContainerItemProxy */;
+		};
+		37BDD74B2317C60900F4FA37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EonilBSD;
+			targetProxy = 37BDD74A2317C60900F4FA37 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -731,7 +920,6 @@
 		3742BD29216CE423008ACE50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -740,7 +928,6 @@
 		3742BD2A216CE423008ACE50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -837,9 +1024,11 @@
 		37A6B515211AC87500AC2EA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
 				INFOPLIST_FILE = "$(SRCROOT)/ShredderHelper/ShredderHelper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
@@ -865,7 +1054,9 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/ShredderHelper/ShredderHelper-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -921,7 +1112,7 @@
 				CODESIGN_HELPER = "identifier \"nl.prowarehouse.Shredder\" and anchor apple generic and certificate leaf[subject.CN] = \"Mac Developer: Arnold Nefkens (584M2M88H2)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = R55HK5K86Y;
@@ -985,9 +1176,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODESIGN_APP = "anchor apple generic and identifier \"nl.prowarehouse.ShredderHelper\" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R55HK5K86Y)";
 				CODESIGN_HELPER = "anchor apple generic and identifier \"nl.prowarehouse.Shredder\" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = R55HK5K86Y)";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = R55HK5K86Y;
@@ -1013,6 +1204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shredder/Resources/EraseInstall.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1035,7 +1227,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_ENTITLEMENTS = Shredder/Resources/EraseInstall.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Pro Warehouse B.V. (R55HK5K86Y)";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = R55HK5K86Y;

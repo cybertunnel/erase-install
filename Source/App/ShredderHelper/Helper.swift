@@ -3,7 +3,7 @@
 //  ShredderHelper
 //
 //  Created by Arnold Nefkens on 08/08/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,6 +33,7 @@ class Helper: NSObject, HelperAppProtocol, NSXPCListenerDelegate {
     var connectionToMain: NSXPCConnection?
     let outputPipe = Pipe()
     var activeProcessHelper: ProcessHelper?
+    var activePTYProcessHelper: ProcessPTYHelper?
 
     override init() {
         self.listener = NSXPCListener(machServiceName: HelperConstants.helperServiceName)
@@ -47,26 +48,33 @@ class Helper: NSObject, HelperAppProtocol, NSXPCListenerDelegate {
     }
 
     func getHelperVersion() {
-        sendMessageToMain(value: "Helper Version asked.")
+        sendMessageToMain(value: "Helper Version asked.", needToDisplay: false)
         if let versionToSend = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String {
             mainAppService()?.didReceiveVersionOfHelper(version: versionToSend)
         }
     }
 
-    func runCommand(path: String, arguments: [String]?) {
-        sendMessageToMain(value: "Command Runs: path: \(path)")
+    func runCommand(path: String, arguments: [String]?, usePTY: Bool) {
+        sendMessageToMain(value: "Command Runs: path: \(path)", needToDisplay: false)
         let command = CliCommand(launchPath: path, arguments: arguments)
-        if activeProcessHelper != nil {
-            activeProcessHelper = nil
+        if usePTY {
+            if activePTYProcessHelper != nil {
+                activePTYProcessHelper = nil
+            }
+            activePTYProcessHelper = ProcessPTYHelper.init(command: command, delegateToSet: self)
+            activePTYProcessHelper?.executePTY()
+        } else {
+            if activeProcessHelper != nil {
+                activeProcessHelper = nil
+            }
+            activeProcessHelper = ProcessHelper.init(command: command, delegateToSet: self)
+            activeProcessHelper!.execute()
         }
-        activeProcessHelper = ProcessHelper.init(command: command)
-        activeProcessHelper?.delegate = self
-        activeProcessHelper!.execute()
         mainAppService()?.didStartWithCommand(command: "path: \(path), arguments: \(String(describing: arguments))")
     }
 
-    func sendMessageToMain(value: String) {
-        mainAppService()?.didReceiveLog(value: value)
+    func sendMessageToMain(value: String, needToDisplay: Bool) {
+        mainAppService()?.didReceiveLog(value: value, forUI: needToDisplay)
     }
 
     func mainAppService() -> MainAppProtocol? {
@@ -77,8 +85,7 @@ class Helper: NSObject, HelperAppProtocol, NSXPCListenerDelegate {
     }
 
     // MARK: - NSXPCListenerDelegate
-    // swiftlint:disable colon
-    func listener(_ listener:NSXPCListener, shouldAcceptNewConnection connection: NSXPCConnection) -> Bool {
+    func listener(_ listener: NSXPCListener, shouldAcceptNewConnection connection: NSXPCConnection) -> Bool {
         connectionToMain = connection
         connectionToMain?.exportedInterface = NSXPCInterface(with: HelperAppProtocol.self)
         connectionToMain?.remoteObjectInterface = NSXPCInterface(with: MainAppProtocol.self)
@@ -86,23 +93,32 @@ class Helper: NSObject, HelperAppProtocol, NSXPCListenerDelegate {
         connectionToMain?.resume()
         return true
     }
-    // swiftlint:enable colon
-
 }
 
 extension Helper: ProcessHelperProtocol {
     func didTerminateApp(normal: Bool) {
-        // sever the active process helper
+        // Nillify the active Process Helpers
         activeProcessHelper = nil
+        activePTYProcessHelper = nil
+
         // inform delegate
-        mainAppService()?.didTerminateHelper(normal: normal)
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.mainAppService()?.didTerminateHelper(normal: normal)
+        }
     }
 
     func didReceiveErrorOutput(value: String) {
-        mainAppService()?.didReceiveErrorOutput(value: value)
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.mainAppService()?.didReceiveErrorOutput(value: value)
+        }
     }
 
-    func didReceiveLogEntry(value: String) {
-        sendMessageToMain(value: value)
+    func didReceiveLogEntry(value: String, forUI: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let weakSelf = self else { return }
+            weakSelf.sendMessageToMain(value: value, needToDisplay: forUI)
+        }
     }
 }

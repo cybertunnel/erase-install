@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 25/09/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@
 //  ShredderHelper
 //
 //  Created by Arnold Nefkens on 08/08/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,35 +25,14 @@
 //
 
 import Foundation
-import NotificationCenter
-
-struct CliCommand {
-    let launchPath: String
-    let arguments: [String]?
-}
-
-protocol ProcessHelperProtocol: class {
-    /// Callback to inform delegate of updated log entry
-    ///
-    /// - Parameter value: log entry
-    func didReceiveLogEntry(value: String)
-
-    /// Callback to inform delegate of error output.
-    ///
-    /// - Parameter value: error content.
-    func didReceiveErrorOutput(value: String)
-
-    /// Callback to inform when the app is terminated.
-    ///
-    /// - Returns: True is exit 0 else false.
-    func didTerminateApp(normal: Bool)
-}
 
 class ProcessHelper: NSObject {
     private var task: Process?
     weak var delegate: ProcessHelperProtocol?
 
-    init(command: CliCommand) {
+    init(command: CliCommand, delegateToSet: ProcessHelperProtocol) {
+        delegate = delegateToSet
+
         super.init()
 
         if task != nil {
@@ -62,19 +41,31 @@ class ProcessHelper: NSObject {
         }
 
         task = self.generateTask(command: command)
+
     }
 
     // MARK: - Public
     func execute() {
-        delegate?.didReceiveLogEntry(value: "Helper: Command starting Execution")
+        delegate?.didReceiveLogEntry(value: "Helper: Command starting Execution", forUI: false)
         let output = Pipe()
         let outputHandle = output.fileHandleForReading
         outputHandle.readabilityHandler = { [weak self] pipe in
+            NSLog("Entering STD OUT")
+            guard let weakSelf = self else {
+                NSLog("Helper: In STD Out Handler: Helper is nil, returning")
+                return
+            }
+            guard let weakDelegate = weakSelf.delegate else {
+                NSLog("Helper: In STD Out Handler: Delegate is nil, returning")
+                return
+            }
+
+           weakDelegate.didReceiveLogEntry(value: "Helper: In STD Out Handler", forUI: false)
             if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
                 // Update your view with the new text here
-                self?.delegate?.didReceiveLogEntry(value: line)
+                weakDelegate.didReceiveLogEntry(value: line, forUI: false)
             } else {
-                self?.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
+                weakDelegate.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)", forUI: false)
             }
         }
         task?.standardOutput = output
@@ -82,13 +73,23 @@ class ProcessHelper: NSObject {
         let errorOutput = Pipe()
         let errorhandle = errorOutput.fileHandleForReading
         errorhandle.readabilityHandler = { [weak self] pipe in
+            NSLog("Entering STD ERR")
+            guard let weakSelf = self else {
+                NSLog("Helper: In ERR Out Handler: Helper is nil, returning")
+                return
+            }
+            guard let weakDelegate = weakSelf.delegate else {
+                NSLog("Helper: In ERR Out Handler: Delegate is nil, returning")
+                return
+            }
+
             if let line = String(data: pipe.availableData, encoding: String.Encoding.utf8) {
                 // Update your view with the new text here
                 let message: String = "Error:\(line)"
-                self?.delegate?.didReceiveLogEntry(value: message)
+                weakDelegate.didReceiveLogEntry(value: message, forUI: false)
 
             } else {
-                self?.delegate?.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)")
+                weakDelegate.didReceiveLogEntry(value: "Error decoding data: \(pipe.availableData)", forUI: false)
             }
         }
         task?.standardError = errorOutput
@@ -103,10 +104,19 @@ class ProcessHelper: NSObject {
             task.arguments = arguments
         }
         task.terminationHandler = { [weak self] process in
+            NSLog("Entering TERM")
+            guard let weakSelf = self else {
+                NSLog("Helper: In TErmination Handler: Helper is nil, returning")
+                return
+            }
+            guard let weakDelegate = weakSelf.delegate else {
+                NSLog("Helper: In TERMINATION Out Handler: Delegate is nil, returning")
+                return
+            }
             if process.terminationStatus == 0 {
-                self?.delegate?.didTerminateApp(normal: true)
+               weakDelegate.didTerminateApp(normal: true)
             } else {
-                self?.delegate?.didTerminateApp(normal: false)
+                weakDelegate.didTerminateApp(normal: false)
             }
 
             // cleanup
@@ -118,8 +128,7 @@ class ProcessHelper: NSObject {
             }
             process.standardError = nil
             process.standardOutput = nil
-            self?.delegate = nil
-            self?.task = nil
+            weakSelf.task = nil
         }
         return task
     }

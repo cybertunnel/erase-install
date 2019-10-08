@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 03/10/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -221,6 +221,37 @@ class ValidationHelper: NSObject, Logging {
         let status = task.terminationStatus
         if status == 0 {
             return true
+        }
+
+        return false
+    }
+
+    /// Validator for found scripts.
+    ///
+    /// - Parameter path: String path for file found.
+    /// - Returns: True when file is executable, has root as owner, is readable and has posix permissions of 755.
+    private func validateScript(path: String) -> Bool {
+        let fileManager = FileManager.default
+        do {
+            // Get the permissions set.
+            let itemAttributes = try fileManager.attributesOfItem(atPath: path)
+
+            // If we find the owner and posixPermissions we move forward.
+            if let owner = itemAttributes[FileAttributeKey.ownerAccountName] as? String,
+                let posix = itemAttributes[FileAttributeKey.posixPermissions] as? NSNumber {
+
+                // Convert posix Octal value to readable string
+                let posixString = String(format: "%o", posix.int16Value)
+                let isExecutable = fileManager.isExecutableFile(atPath: path)
+                let isReadable = fileManager.isReadableFile(atPath: path)
+
+                // Validate the attributes.
+                if owner == "root" && isExecutable && isReadable &&  posixString == "755"{
+                    return true
+                }
+            }
+        } catch {
+            log(message: "Script not valid: \(path)")
         }
 
         return false

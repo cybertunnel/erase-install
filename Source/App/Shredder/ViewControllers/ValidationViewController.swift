@@ -3,7 +3,7 @@
 //  Shredder
 //
 //  Created by Arnold Nefkens on 25/09/2018.
-//  Copyright © 2018 Pro Warehouse.
+//  Copyright © 2019 Pro Warehouse.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -143,7 +143,7 @@ class ValidationViewController: NSViewController, Logging {
         validationContainer.isHidden = true
     }
 
-    private func prepareAndExecuteCommand() {
+    private func prepareAndExecuteStartOSInstallCommand() {
         log(message: "Validation: Starting Command to send")
         if let installerSelected = selectedInstaller {
 
@@ -156,7 +156,8 @@ class ValidationViewController: NSViewController, Logging {
 
             let completeCommandPath = "\(installerSelected.path)/Contents/Resources/startosinstall"
             let command = CommandToSend(launchPath: completeCommandPath,
-                                        launchArguments: arguments)
+                                        launchArguments: arguments,
+                                        usePTY: true)
 //            let command = CommandToSend(launchPath: "/usr/sbin/system_profiler", launchArguments: [])
             self.xpcClient.sendCommandToHelper(command: command)
             self.continueButton.isHidden = true
@@ -331,14 +332,14 @@ extension ValidationViewController: XPCServiceClientProtocol {
 
     func connectionLostWhileInstallingHelper() {
         log(message: "Validation: Helper Connection lost.")
-        prepareAndExecuteCommand()
+        prepareAndExecuteStartOSInstallCommand()
     }
 
     func didReceiveVersion(value: String) {
         let localVersion = xpcClient.versionOfInstalledDeamon()
         if value == localVersion {
             log(message: "Validation: Helper versions do match")
-            self.prepareAndExecuteCommand()
+            self.prepareAndExecuteStartOSInstallCommand()
         } else {
             log(message: "Validation: Helper versions do not match")
             self.displayInstallUodatedVersionOfHelperAlert()
@@ -347,7 +348,7 @@ extension ValidationViewController: XPCServiceClientProtocol {
 
     func didInstallHelper() {
         log(message: "Validation: Helper Installed")
-        prepareAndExecuteCommand()
+        prepareAndExecuteStartOSInstallCommand()
     }
 }
 
