@@ -14,8 +14,8 @@ Description
 Requirements
 ===================================
 
-- Xcode 10 or higher
-- Swift 4.2
+- Xcode 11 or higher
+- Swift 5
 
 Architecture
 ===================================
