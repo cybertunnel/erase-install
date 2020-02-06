@@ -82,6 +82,11 @@ Source
 
 The source of the application can be found in the folder [Source](./Source/).
 
+F.A.Q.
+===================================
+*How secure is the erase that is performed?*
+The erase functionality used by the command is higlighted in https://www.apple.com/mac/docs/Apple_T2_Security_Chip_Overview.pdf, on page 6. "When deleting a volume, its volume key is securely deleted by Secure Enclave. This prevents future access with this key even by the Secure Enclave. In addition, all volume keys are wrapped with a media key. The media key doesn’t provide additional confidentiality of data, but instead is designed to enable swift and secure deletion of data because without it, decryption is impossible."
+
 Release Notes
 ===================================
  
