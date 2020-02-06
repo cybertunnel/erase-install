@@ -21,6 +21,7 @@ Requirements
 
 * macOS 10.13.0 and higher
 * macOS 10.14.0 and higher
+* macOS 10.15.0 and higher
 
 _Important:_
 Because this new version is built with Swift 5, it will require the [Swift 5 Runtime Support](https://support.apple.com/kb/DL1998) to be installed as well, when on macOS 10.14.3 and older.
