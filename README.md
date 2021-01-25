@@ -1,3 +1,6 @@
+# This is a clone from BitBucket
+This repository is a clone from the BitBucket one with some adjustments. Please visit the [Original](https://bitbucket.org/prowarehouse-nl/erase-install) repository for official releases.
+
 # Erase & Install
 
 
